@@ -1,5 +1,20 @@
 body {
   padding: 10px;
+  font-family: "Droid", sans-serif;
+  font-size: 12px;
+}
+
+h1{
+  font-size: 32px;
+}
+
+p{
+  margin-bottom: 40px;
+}
+
+.wrap{
+  width: 960px;
+  margin: 0 auto;
 }
 
 .options {
@@ -13,32 +28,69 @@ body {
 }
 
 .pads .pad {
+  position: relative;
   float: left;
   width: 135px;
   height: 100px;
   line-height: 100px;
   text-align: center;
-  background: #ccc;
+  background: #eee;
+  color: #E8E8E8;
   margin: 0 10px 10px 0;
+  font-size: 90px;
+}
+
+.pads .pad .interval {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.pads .pad .note {
+  font-size: 10px;
 }
 
 .pads .pad.highlight {
 }
 
-.pads .pad.highlight[data-interval="0"] {
+.pads .pad.highlight[data-interval="unison"] {
   background: #EBB035;
 }
 
-.pads .pad.highlight[data-interval="1"] {
+.pads .pad.highlight[data-interval="minor-second"],
+.pads .pad.highlight[data-interval="major-second"] {
   background: #06A2CB;
 }
 
-.pads .pad.highlight[data-interval="2"] {
+.pads .pad.highlight[data-interval="minor-third"],
+.pads .pad.highlight[data-interval="major-third"] {
   background: #218559;
 }
 
-.pads .pad.highlight[data-interval="3"] {
+.pads .pad.highlight[data-interval="fourth"],
+.pads .pad.highlight[data-interval="augmented-fourth"] {
   background: #EC6C3F;
+}
+
+.pads .pad.highlight[data-interval="tritone"] {
+  background: #443266;
+}
+
+.pads .pad.highlight[data-interval="diminished-fifth"],
+.pads .pad.highlight[data-interval="fifth"] {
+  background: #C3C3E5;
+}
+
+.pads .pad.highlight[data-interval="minor-sixth"],
+.pads .pad.highlight[data-interval="major-sixth"] {
+  background: #F1F0FF;
+}
+
+.pads .pad.highlight[data-interval="minor-seventh"],
+.pads .pad.highlight[data-interval="major-seventh"] {
+  background: #8C489F;
 }
 
 .clear {

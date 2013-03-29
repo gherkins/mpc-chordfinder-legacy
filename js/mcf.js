@@ -6,7 +6,9 @@ $(function () {
 
     $('.options select').on('change', function () {
 
-        $('.pads .pad').removeClass('highlight');
+        $('.pads .pad')
+            .removeClass('highlight')
+            .find('.interval').html('');
 
         var key = $('.options select#key').val();
         var intervals = $('.options select#type option:selected').data('intervals');
@@ -20,11 +22,15 @@ $(function () {
 
         var chord = root.add(intervals);
 
-        console.log(chord);
         $(chord).each(function (key) {
+
+            var interval_class = intervals[key].replace(" ", '-');
+            var interval = intervals[key].replace('unison', 'root');
+
             $('.pads .pad[data-key="' + this.latin() + '"], .pads .pad[data-key-2="' + this.latin() + '"]')
                 .addClass('highlight')
-                .attr('data-interval', key);
+                .attr('data-interval', interval_class)
+                .find('.interval').html(this.latin() + ' - ' + interval);
 
             console.log(this.latin());
         });
