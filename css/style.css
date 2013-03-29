@@ -1,0 +1,46 @@
+body {
+  padding: 10px;
+}
+
+.options {
+  float: left;
+  margin-right: 20px;
+}
+
+.pads {
+  width: 440px;
+  float: left;
+}
+
+.pads .pad {
+  float: left;
+  width: 135px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background: #ccc;
+  margin: 0 10px 10px 0;
+}
+
+.pads .pad.highlight {
+}
+
+.pads .pad.highlight[data-interval="0"] {
+  background: #EBB035;
+}
+
+.pads .pad.highlight[data-interval="1"] {
+  background: #06A2CB;
+}
+
+.pads .pad.highlight[data-interval="2"] {
+  background: #218559;
+}
+
+.pads .pad.highlight[data-interval="3"] {
+  background: #EC6C3F;
+}
+
+.clear {
+  clear: both;
+}
