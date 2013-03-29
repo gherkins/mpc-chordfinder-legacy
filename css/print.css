@@ -1,0 +1,12 @@
+h1,
+p,
+.options,
+.current,
+a#add,
+a.remove {
+  display: none;
+}
+
+.collection .pads {
+
+}

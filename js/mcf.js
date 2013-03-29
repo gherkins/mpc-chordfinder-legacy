@@ -1,12 +1,12 @@
 var ctx = new webkitAudioContext()
     , osc = []
-    , octave = 5
+    , octave = 3;
 
 $(function () {
 
     $('.options select').on('change', function () {
 
-        $('.pads .pad')
+        $('.current .pads .pad')
             .removeClass('highlight')
             .find('.interval').html('');
 
@@ -27,7 +27,7 @@ $(function () {
             var interval_class = intervals[key].replace(" ", '-');
             var interval = intervals[key].replace('unison', 'root');
 
-            $('.pads .pad[data-key="' + this.latin() + '"], .pads .pad[data-key-2="' + this.latin() + '"]')
+            $('.current .pads .pad[data-key="' + this.latin() + '"], .current .pads .pad[data-key-2="' + this.latin() + '"]')
                 .addClass('highlight')
                 .attr('data-interval', interval_class)
                 .find('.interval').html(this.latin() + ' - ' + interval);
@@ -35,16 +35,35 @@ $(function () {
             console.log(this.latin());
         });
 
-        //create oscillators and play sound
-//        $(chord).each(function (key) {
-//            var time = ctx.currentTime;
-//            osc[key] = ctx.createOscillator();
-//            osc[key].type = 0;
-//            osc[key].connect(ctx.destination);
-//            osc[key].frequency.value = this.frequency().toFixed(2);
-//            osc[key].start(time);
-//            osc[key].stop(time + 1);
-//        });
-
     });
+
+    $('a#add').on('click', function (e) {
+        e.preventDefault();
+
+        var name = $('.options select#key').val();
+        name += ' ' + $('.options select#type option:selected').html();
+
+        var nameLabel = $('<div/>')
+            .addClass('name')
+            .html(name);
+
+        var remove = $('<a/>')
+            .addClass('remove')
+            .attr('href', '#')
+            .html('x');
+
+        $('.current .pads')
+            .clone()
+            .prepend(remove)
+            .prepend(nameLabel)
+            .appendTo('.collection')
+            .find('.interval').remove();
+    });
+
+    $('.collection').delegate('.pads .remove', 'click', function (e) {
+        e.preventDefault();
+        ($(this).parent().fadeOut(function () {
+            $(this).remove();
+        }));
+    })
 });

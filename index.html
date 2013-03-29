@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/music.js"></script>
     <script type="text/javascript" src="js/mcf.js"></script>
@@ -20,7 +21,7 @@
     </p>
 
     <div class="options">
-        <select id="key" size=30>
+        <select id="key" size=20>
             <option value="C">C</option>
             <option value="C#">C#/Db</option>
             <option value="D">D</option>
@@ -34,33 +35,7 @@
             <option value="A#">A#/Bb</option>
             <option value="B">B</option>
         </select>
-        <select id="type" size="30">
-
-            <!--unison-->
-            <!--minor second-->
-            <!--major second-->
-            <!--minor third-->
-            <!--major third-->
-            <!--fourth-->
-            <!--augmented fourth-->
-            <!--tritone-->
-            <!--diminished fifth-->
-            <!--fifth-->
-            <!--minor sixth-->
-            <!--major sixth-->
-            <!--minor seventh-->
-            <!--major seventh-->
-            <!--octave-->
-
-            <!--Seventh flat five (7b5) 1 - 3 - b5 - b7-->
-            <!--Minor seven flat five (m7b5) 1 - b3 - b5 - b7-->
-            <!--Ninth (dominant ninth)(9) 1 - 3 - 5 - b7 - 9-->
-            <!--Major ninth (M9) 1 - 3 - 5 - 7 - 9-->
-            <!--Minor ninth (m9) 1 - b3 - 5 - b7 - 9-->
-            <!--Add nine (add9) 1 - 3 - 5 - 9-->
-            <!--Eleventh (11) 1 - 3 - 5 - 7 - 9 - 11-->
-            <!--Thirteenth (13) 1 - 3 - 5 - 7 - 9 - 11 - 13-->
-
+        <select id="type" size="20">
             <option data-intervals='["unison", "major third", "fifth"]'>maj</option>
             <option data-intervals='["unison", "minor third", "fifth"]'>min</option>
             <option data-intervals='["unison", "major third", "minor sixth"]'>aug</option>
@@ -74,56 +49,68 @@
             <option data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>m7</option>
             <option data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</option>
             <option data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</option>
+            <option data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</option>
+            <option data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>m7b5</option>
         </select>
     </div>
 
-    <div class="pads">
+    <div class="current">
+        <div class="pads">
 
-        <div class="pad" data-key="A">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="A#" data-key-2="Bb">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="B">
-            <span class="interval"></span>
-        </div>
+            <div class="pad" data-key="A">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="A#" data-key-2="Bb">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="B" data-key-2="Cb">
+                <span class="interval"></span>
+            </div>
 
-        <div class="pad" data-key="F#" data-key-2="Gb">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="G" data-key-2="Fx">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="G#" data-key-2="Ab">
-            <span class="interval"></span>
-        </div>
+            <div class="pad" data-key="F#" data-key-2="Gb">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="G" data-key-2="Fx">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="G#" data-key-2="Ab">
+                <span class="interval"></span>
+            </div>
 
-        <div class="pad" data-key="D#" data-key-2="Eb">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="E" data-key-2="Dx">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="F" data-key-2="E#">
-            <span class="interval"></span>
-        </div>
+            <div class="pad" data-key="D#" data-key-2="Eb">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="E" data-key-2="Dx">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="F" data-key-2="E#">
+                <span class="interval"></span>
+            </div>
 
-        <div class="pad" data-key="C" data-key-2="B#">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="C#" data-key-2="Db">
-            <span class="interval"></span>
-        </div>
-        <div class="pad" data-key="D" data-key-2="Cx">
-            <span class="interval"></span>
-        </div>
+            <div class="pad" data-key="C" data-key-2="B#">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="C#" data-key-2="Db">
+                <span class="interval"></span>
+            </div>
+            <div class="pad" data-key="D" data-key-2="Cx">
+                <span class="interval"></span>
+            </div>
 
-        <div class="clear"></div>
+            <div class="clear"></div>
+
+        </div>
 
     </div>
 
+    <a href="#" id="add">add<br>to<br>collection</a>
+
     <div class="clear"></div>
+
+    <div class="collection">
+
+    </div>
+
 </div>
 
 </body>
