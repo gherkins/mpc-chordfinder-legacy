@@ -41,11 +41,15 @@ p{
 }
 
 .pads .pad .interval {
+  display: block;
+  width: 120px;
   position: absolute;
   right: 5px;
   bottom: 5px;
   font-size: 10px;
   line-height: 10px;
+  text-transform: uppercase;
+  text-align: right;
 }
 
 .pads .pad .note {
@@ -53,6 +57,7 @@ p{
 }
 
 .pads .pad.highlight {
+  color: #000;
 }
 
 .pads .pad.highlight[data-interval="unison"] {
@@ -61,12 +66,12 @@ p{
 
 .pads .pad.highlight[data-interval="minor-second"],
 .pads .pad.highlight[data-interval="major-second"] {
-  background: #06A2CB;
+  background: #52bbd7;
 }
 
 .pads .pad.highlight[data-interval="minor-third"],
 .pads .pad.highlight[data-interval="major-third"] {
-  background: #218559;
+  background: #2fa973;
 }
 
 .pads .pad.highlight[data-interval="fourth"],
@@ -75,7 +80,7 @@ p{
 }
 
 .pads .pad.highlight[data-interval="tritone"] {
-  background: #443266;
+  background: #78659a;
 }
 
 .pads .pad.highlight[data-interval="diminished-fifth"],
@@ -85,7 +90,7 @@ p{
 
 .pads .pad.highlight[data-interval="minor-sixth"],
 .pads .pad.highlight[data-interval="major-sixth"] {
-  background: #F1F0FF;
+  background: #d4d1ff;
 }
 
 .pads .pad.highlight[data-interval="minor-seventh"],
