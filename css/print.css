@@ -7,6 +7,10 @@ a.remove {
   display: none;
 }
 
-.collection .pads {
+.collection {
+  marign: 30px 0;
+}
 
+.collection .pads {
+  margin-bottom: 20px;
 }
