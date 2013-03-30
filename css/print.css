@@ -16,7 +16,6 @@ a#github {
 
 .collection .pads {
   margin-bottom: 20px;
-
 }
 
 .collection .pads .pad.highlight {
@@ -26,4 +25,13 @@ a#github {
   border-right: 24px solid darkgrey;
   border-top: 20px solid darkgrey;
   border-bottom: 20px solid darkgrey;
+}
+
+.collection .pads.pads16 .pad.highlight {
+  width: 0px;
+  height: 0px;
+  border-left: 18px solid darkgrey;
+  border-right: 17px solid darkgrey;
+  border-top: 18px solid darkgrey;
+  border-bottom: 17px solid darkgrey;
 }
