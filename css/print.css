@@ -3,6 +3,7 @@ p,
 .options,
 .current,
 a#add,
+a#clear,
 a.remove {
   display: none;
 }
@@ -13,4 +14,15 @@ a.remove {
 
 .collection .pads {
   margin-bottom: 20px;
+
+}
+
+
+.collection .pads .pad.highlight{
+  width: 0px;
+  height: 0px;
+  border-left: 24px solid darkgrey;
+  border-right: 24px solid darkgrey;
+  border-top: 20px solid darkgrey;
+  border-bottom: 20px solid darkgrey;
 }

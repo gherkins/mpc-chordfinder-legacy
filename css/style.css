@@ -7,6 +7,7 @@ body {
 h1 {
   text-transform: uppercase;
   font-size: 32px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -23,30 +24,40 @@ p {
   margin-right: 10px;
 }
 
-.options select {
-  height: 430px;
+.options fieldset {
+  float: left;
   width: 100px;
   margin-right: 10px;
-  font-family: "Droid", sans-serif;
-  font-size: 16px;
+}
+
+.options fieldset label {
+  display: block;
+  margin-bottom: 4px;
+  height: 23px;
+}
+
+.options fieldset label .ui-button-text {
+  padding: 0;
+  line-height: 23px;
 }
 
 .pads {
-  width: 440px;
+  width: 480px;
   float: left;
 }
 
 .pads .pad {
   position: relative;
   float: left;
-  width: 135px;
-  height: 100px;
+  width: 148px;
+  height: 98px;
   line-height: 100px;
   text-align: center;
   background: #eee;
   color: #E8E8E8;
   margin: 0 10px 10px 0;
   font-size: 90px;
+  border: 1px solid darkgrey;
 }
 
 .pads .pad .interval {
@@ -71,51 +82,51 @@ p {
 }
 
 /*.pads .pad.highlight[data-interval="unison"] {*/
-  /*background: #EBB035;*/
+/*background: #EBB035;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="minor-second"],*/
 /*.pads .pad.highlight[data-interval="major-second"] {*/
-  /*background: #52bbd7;*/
+/*background: #52bbd7;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="minor-third"],*/
 /*.pads .pad.highlight[data-interval="major-third"] {*/
-  /*background: #2fa973;*/
+/*background: #2fa973;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="fourth"],*/
 /*.pads .pad.highlight[data-interval="augmented-fourth"] {*/
-  /*background: #EC6C3F;*/
+/*background: #EC6C3F;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="tritone"] {*/
-  /*background: #78659a;*/
+/*background: #78659a;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="diminished-fifth"],*/
 /*.pads .pad.highlight[data-interval="fifth"] {*/
-  /*background: #C3C3E5;*/
+/*background: #C3C3E5;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="minor-sixth"],*/
 /*.pads .pad.highlight[data-interval="major-sixth"] {*/
-  /*background: #d4d1ff;*/
+/*background: #d4d1ff;*/
 /*}*/
 
 /*.pads .pad.highlight[data-interval="minor-seventh"],*/
 /*.pads .pad.highlight[data-interval="major-seventh"] {*/
-  /*background: #8C489F;*/
+/*background: #8C489F;*/
 /*}*/
 
 /*collection*/
 
-.collection{
+.collection {
   padding: 30px 0;
 }
 
 .collection .pads {
-  width: 165px;
+  width: 172px;
   margin-right: 20px;
   position: relative;
   padding-bottom: 20px;
@@ -127,20 +138,21 @@ p {
 
 .collection .pads .remove {
   position: absolute;
-  right: 5px;
+  right: 20px;
   top: 0;
   text-decoration: none;
   color: #000;
 }
 
 .collection .pads .pad {
-  width: 50px;
-  height: 40px;
+  width: 46px;
+  height: 38px;
   margin-right: 5px;
   margin-bottom: 5px;
 }
 
-a#add {
+a#add,
+a#clear {
   background: #eee;
   display: block;
   width: 100px;
@@ -153,9 +165,11 @@ a#add {
   float: left;
   margin-top: 330px;
   color: #ccc;
+  margin-right: 10px;
 }
 
-a#add:hover {
+a#add:hover,
+a#clear:hover {
   color: #aaa;
 }
 
