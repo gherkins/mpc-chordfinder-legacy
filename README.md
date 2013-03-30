@@ -1,4 +1,6 @@
-mpc-chordfinder
+MPC-chord-finder
 ===============
 
-tool to locate chords on mpc pads
+It's a tool to locate chords on the Akai MPCs pads.
+
+Check out [the demo](http://gherkins.github.com/mpc-chordfinder/)
