@@ -16,24 +16,28 @@
 <div class="wrap">
 
     <h1>
-        MPC500-Chordfinder
+        MPC-Chordfinder
     </h1>
 
     <p>
-        it's a tool to locate chords on the <a href="http://www.akaipro.com/mpc500">Akai MPC500s</a> pads. It should work with a recent version of <a href="https://www.google.com/chrome/">chrome</a>.<br>
+        it's a tool to locate chords on the <a href="http://www.akaipro.com/mpc500">Akai MPCs</a> pads. It should
+        work with a recent version of <a href="https://www.google.com/chrome/">chrome</a>.<br>
         Set up a <a href="http://www.mpc-tutor.com/low-midi-note-mpc-program-template/">chromatic note layout</a> where
         PAD1 is C on your MPC, grab a <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
         <br>
         <br>
         You can add chords to the collection by pressing the button "add to collection".<br>
         Then print the page in landscape mode and turn off your computer ;)
+        <br>
+        <br>
+        Try <a href="http://tinyurl.com/cbczbda">this example</a>!
     </p>
 
 
     <div class="options">
 
         <fieldset id="key">
-            <input type="radio" name="key" id="key_c">
+            <input type="radio" name="key" id="key_c" checked>
             <label for="key_c" data-key="C">C</label>
 
             <input type="radio" name="key" id="key_db">
@@ -70,8 +74,16 @@
             <label for="key_b" data-key="B">B</label>
         </fieldset>
 
+        <fieldset id="layout">
+            <input type="radio" name="layout" id="layout12" checked>
+            <label for="layout12" data-layout="pads12">12 pads</label>
+
+            <input type="radio" name="layout" id="layout16">
+            <label for="layout16" data-layout="pads16">16 pads</label>
+        </fieldset>
+
         <fieldset id="type">
-            <input type="radio" name="type" value="maj" id="maj">
+            <input type="radio" name="type" value="maj" id="maj" checked>
             <label for="maj" data-intervals='["unison", "major third", "fifth"]'>maj</label>
 
             <input type="radio" name="type" value="aug" id="aug">
@@ -123,52 +135,7 @@
     </div>
 
     <div class="current">
-        <div class="pads">
-
-            <div class="pad" data-key="A">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="A#" data-key-2="Bb">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="B" data-key-2="Cb">
-                <span class="interval"></span>
-            </div>
-
-            <div class="pad" data-key="F#" data-key-2="Gb">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="G" data-key-2="Fx">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="G#" data-key-2="Ab">
-                <span class="interval"></span>
-            </div>
-
-            <div class="pad" data-key="D#" data-key-2="Eb">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="E" data-key-2="Dx">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="F" data-key-2="E#">
-                <span class="interval"></span>
-            </div>
-
-            <div class="pad" data-key="C" data-key-2="B#">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="C#" data-key-2="Db">
-                <span class="interval"></span>
-            </div>
-            <div class="pad" data-key="D" data-key-2="Cx">
-                <span class="interval"></span>
-            </div>
-
-            <div class="clear"></div>
-
-        </div>
-
+        <div class="pads"></div>
     </div>
 
     <a href="#" id="add">add<br>to<br>collection</a>
@@ -182,6 +149,98 @@
     <div class="clear"></div>
 
 </div>
+
+<template id="pads12">
+    <div class="pad" data-key="A">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="A#" data-key-2="Bb">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="B" data-key-2="Cb">
+        <span class="interval"></span>
+    </div>
+
+    <div class="pad" data-key="F#" data-key-2="Gb">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="G" data-key-2="Fx">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="G#" data-key-2="Ab">
+        <span class="interval"></span>
+    </div>
+
+    <div class="pad" data-key="D#" data-key-2="Eb">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="E" data-key-2="Dx">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="F" data-key-2="E#">
+        <span class="interval"></span>
+    </div>
+
+    <div class="pad" data-key="C" data-key-2="B#">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="C#" data-key-2="Db">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="D" data-key-2="Cx">
+        <span class="interval"></span>
+    </div>
+
+    <div class="clear"></div>
+</template>
+
+<template id="pads16">
+    <div class="pad"></div>
+    <div class="pad"></div>
+    <div class="pad"></div>
+    <div class="pad"></div>
+
+    <div class="pad" data-key="G#" data-key-2="Ab">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="A">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="A#" data-key-2="Bb">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="B" data-key-2="Cb">
+        <span class="interval"></span>
+    </div>
+
+    <div class="pad" data-key="E" data-key-2="Dx">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="F" data-key-2="E#">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="F#" data-key-2="Gb">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="G" data-key-2="Fx">
+        <span class="interval"></span>
+    </div>
+
+    <div class="pad" data-key="C" data-key-2="B#">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="C#" data-key-2="Db">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="D" data-key-2="Cx">
+        <span class="interval"></span>
+    </div>
+    <div class="pad" data-key="D#" data-key-2="Eb">
+        <span class="interval"></span>
+    </div>
+
+    <div class="clear"></div>
+</template>
 
 </body>
 </html>
