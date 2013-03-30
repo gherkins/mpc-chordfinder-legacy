@@ -3,8 +3,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/jquery-ui.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/music.js"></script>
     <script type="text/javascript" src="js/mcf.js"></script>
 </head>
@@ -13,45 +16,110 @@
 <div class="wrap">
 
     <h1>
-        MPC-Chordfinder
+        MPC500-Chordfinder
     </h1>
 
     <p>
-        just a tool to locate chords on the Akai MPC500s pads.
+        it's a tool to locate chords on the <a href="http://www.akaipro.com/mpc500">Akai MPC500s</a> pads. It should work with a recent version of <a href="https://www.google.com/chrome/">chrome</a>.<br>
+        Set up a <a href="http://www.mpc-tutor.com/low-midi-note-mpc-program-template/">chromatic note layout</a> where
+        PAD1 is C on your MPC, grab a <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
+        <br>
+        <br>
+        You can add chords to the collection by pressing the button "add to collection".<br>
+        Then print the page in landscape mode and turn off your computer ;)
     </p>
 
+
     <div class="options">
-        <select id="key" size=20>
-            <option value="C">C</option>
-            <option value="C#">C#/Db</option>
-            <option value="D">D</option>
-            <option value="D#">D#/Eb</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F#/Gb</option>
-            <option value="G">G</option>
-            <option value="G#">G#/Ab</option>
-            <option value="A">A</option>
-            <option value="A#">A#/Bb</option>
-            <option value="B">B</option>
-        </select>
-        <select id="type" size="20">
-            <option data-intervals='["unison", "major third", "fifth"]'>maj</option>
-            <option data-intervals='["unison", "minor third", "fifth"]'>min</option>
-            <option data-intervals='["unison", "major third", "minor sixth"]'>aug</option>
-            <option data-intervals='["unison", "minor third", "diminished fifth"]'>dim</option>
-            <option data-intervals='["unison", "fourth", "fifth"]'>sus4</option>
-            <option data-intervals='["unison", "major second", "fifth"]'>sus2</option>
-            <option data-intervals='["unison", "major third", "fifth", "major sixth"]'>M6</option>
-            <option data-intervals='["unison", "minor third", "fifth", "major sixth"]'>m6</option>
-            <option data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</option>
-            <option data-intervals='["unison", "major third", "fifth", "major seventh"]'>M7</option>
-            <option data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>m7</option>
-            <option data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</option>
-            <option data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</option>
-            <option data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</option>
-            <option data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>m7b5</option>
-        </select>
+
+        <fieldset id="key">
+            <input type="radio" name="key" id="key_c">
+            <label for="key_c" data-key="C">C</label>
+
+            <input type="radio" name="key" id="key_db">
+            <label for="key_db" data-key="C#">C#/Db</label>
+
+            <input type="radio" name="key" id="key_d">
+            <label for="key_d" data-key="D">D</label>
+
+            <input type="radio" name="key" id="key_eb">
+            <label for="key_eb" data-key="D#">D#/Eb</label>
+
+            <input type="radio" name="key" id="key_e">
+            <label for="key_e" data-key="E">E</label>
+
+            <input type="radio" name="key" id="key_f">
+            <label for="key_f" data-key="F">F</label>
+
+            <input type="radio" name="key" id="key_gb">
+            <label for="key_gb" data-key="F#">F#/Gb</label>
+
+            <input type="radio" name="key" id="key_g">
+            <label for="key_g" data-key="G">G</label>
+
+            <input type="radio" name="key" id="key_ab">
+            <label for="key_ab" data-key="G#">G#/Ab</label>
+
+            <input type="radio" name="key" id="key_a">
+            <label for="key_a" data-key="A">A</label>
+
+            <input type="radio" name="key" id="key_bb">
+            <label for="key_bb" data-key="A#">A#/Bb</label>
+
+            <input type="radio" name="key" id="key_b">
+            <label for="key_b" data-key="B">B</label>
+        </fieldset>
+
+        <fieldset id="type">
+            <input type="radio" name="type" value="maj" id="maj">
+            <label for="maj" data-intervals='["unison", "major third", "fifth"]'>maj</label>
+
+            <input type="radio" name="type" value="aug" id="aug">
+            <label for="aug" data-intervals='["unison", "major third", "minor sixth"]'>aug</label>
+
+            <input type="radio" name="type" value="min" id="min">
+            <label for="min" data-intervals='["unison", "minor third", "fifth"]'>min</label>
+
+            <input type="radio" name="type" value="dim" id="dim">
+            <label for="dim" data-intervals='["unison", "minor third", "diminished fifth"]'>dim</label>
+
+            <input type="radio" name="type" value="sus4" id="sus4">
+            <label for="sus4" data-intervals='["unison", "fourth", "fifth"]'>sus4</label>
+
+            <input type="radio" name="type" value="sus2" id="sus2">
+            <label for="sus2" data-intervals='["unison", "major second", "fifth"]'>sus2</label>
+
+            <input type="radio" name="type" value="maj6" id="maj6">
+            <label for="maj6" data-intervals='["unison", "major third", "fifth", "major sixth"]'>maj6</label>
+
+            <input type="radio" name="type" value="min6" id="min6">
+            <label for="min6" data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</label>
+
+            <input type="radio" name="type" value="7" id="7">
+            <label for="7" data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</label>
+
+            <input type="radio" name="type" value="min7" id="min7">
+            <label for="min7" data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</label>
+
+            <input type="radio" name="type" value="m7b5" id="m7b5">
+            <label for="m7b5" data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5</label>
+
+            <input type="radio" name="type" value="7b5" id="7b5">
+            <label for="7b5" data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</label>
+
+            <input type="radio" name="type" value="dim7" id="dim7">
+            <label for="dim7" data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</label>
+
+            <input type="radio" name="type" value="maj7" id="maj7">
+            <label for="maj7" data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</label>
+
+            <input type="radio" name="type" value="7+5" id="7+5">
+            <label for="7+5" data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</label>
+
+        </fieldset>
+
+        <div class="clear"></div>
+
     </div>
 
     <div class="current">
@@ -105,11 +173,11 @@
 
     <a href="#" id="add">add<br>to<br>collection</a>
 
+    <a href="#" id="clear">clear<br>current<br>collection</a>
+
     <div class="clear"></div>
 
-    <div class="collection">
-
-    </div>
+    <div class="collection"></div>
 
     <div class="clear"></div>
 
