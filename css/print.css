@@ -4,7 +4,9 @@ p,
 .current,
 a#add,
 a#clear,
-a.remove {
+a.remove,
+iframe,
+a#github {
   display: none;
 }
 
@@ -17,8 +19,7 @@ a.remove {
 
 }
 
-
-.collection .pads .pad.highlight{
+.collection .pads .pad.highlight {
   width: 0px;
   height: 0px;
   border-left: 24px solid darkgrey;
