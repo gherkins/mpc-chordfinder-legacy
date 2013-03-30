@@ -19,6 +19,12 @@ p {
   margin: 0 auto;
 }
 
+a.twitter-share-button,
+iframe {
+  float: right;
+  margin-top: 47px;
+}
+
 .options {
   float: left;
   margin-right: 10px;
