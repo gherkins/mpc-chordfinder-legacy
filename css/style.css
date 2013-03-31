@@ -75,6 +75,7 @@ iframe {
   margin: 0 10px 10px 0;
   font-size: 90px;
   border: 1px solid darkgrey;
+  box-shadow: 2px 2px 0px #aaa;
 }
 
 .pads .pad .interval {
@@ -96,6 +97,7 @@ iframe {
 .pads .pad.highlight {
   color: #000;
   background: #1ba9fc;
+  box-shadow: 1px 1px 0px #eee;
 }
 
 /*collection*/
@@ -128,6 +130,7 @@ iframe {
   height: 38px;
   margin-right: 5px;
   margin-bottom: 5px;
+  box-shadow: none;
 }
 
 .collection .pads.pads16 .pad {
