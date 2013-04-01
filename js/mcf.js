@@ -1,4 +1,7 @@
-var intervalShortnames = {
+function MPCCF() {
+};
+
+MPCCF.intervalShortnames = {
     'unison': '1',
     'minor second': 'b2',
     'major second': '2',
@@ -14,7 +17,58 @@ var intervalShortnames = {
     'minor seventh': 'b7',
     'major seventh': '7',
     'octave': '1'
-};
+}
+
+MPCCF.load = function (withLayout) {
+    //load data from URL
+    try {
+        var data = JSON.parse(decodeURIComponent(location.hash.substring('1')));
+
+        if (true === withLayout) {
+            //apply layout
+            $('.options #layout label[data-layout="' + data.layout + '"]').click();
+        }
+
+        //load collection from URL data
+        $(data.collection).each(function () {
+            var chord = this.split('_');
+
+            //set key
+            $('.options #key label').filter(function () {
+                if ($(this).text() == chord[0]) {
+                    this.click();
+                }
+            });
+
+            //set type
+            $('.options #type label').filter(function () {
+                if ($(this).text() == chord[1]) {
+                    this.click();
+                }
+            });
+
+            //add the chord
+            $('a#add').click();
+
+        });
+
+    }
+    catch (e) {
+    }
+}
+
+//store data in URL hash
+MPCCF.refreshHash = function refreshHash() {
+    var data = {};
+    data['layout'] = $('.options #layout label.ui-state-active').data('layout');
+    data['collection'] = [];
+    $('.collection .pads').each(function () {
+        var name = $(this).find('.name').html().replace(' ', '_');
+        data['collection'].push(name);
+    });
+
+    location.hash = JSON.stringify(data);
+}
 
 $(function () {
 
@@ -41,7 +95,7 @@ $(function () {
         $(chord).each(function (key) {
 
             //shortname for on-pad display
-            var intervalShortname = intervalShortnames[intervals[key]];
+            var intervalShortname = MPCCF.intervalShortnames[intervals[key]];
 
             //highlight PAD and add note- and interval name
             $('.current .pads .pad[data-key="' + this.latin() + '"], .current .pads .pad[data-key-2="' + this.latin() + '"]')
@@ -77,7 +131,7 @@ $(function () {
             .appendTo('.collection')
             .find('.interval').remove();
 
-        refreshHash();
+        MPCCF.refreshHash();
 
     });
 
@@ -87,7 +141,7 @@ $(function () {
         $('.collection .pads .remove').each(function () {
             $(this).click();
         });
-        refreshHash();
+        MPCCF.refreshHash();
     });
 
     //remove chord from collection
@@ -95,7 +149,7 @@ $(function () {
         e.preventDefault();
         ($(this).parent().fadeOut(function () {
             $(this).remove();
-            refreshHash();
+            MPCCF.refreshHash();
         }));
     });
 
@@ -108,60 +162,16 @@ $(function () {
             .addClass(layout);
         $('.current .pads').html($('template#' + layout).html());
         $('.options fieldset#key label.ui-state-active').click();
-        refreshHash();
+        MPCCF.refreshHash();
+        $('.collection .pads').remove();
+        MPCCF.load(false);
     });
 
-    //load collection from URL
-    try {
-        var data = JSON.parse(decodeURIComponent(location.hash.substring('1')));
-
-        //apply layout
-        $('.options #layout label[data-layout="' + data.layout + '"]').click();
-
-        //load collection from URL data
-        $(data.collection).each(function () {
-            var chord = this.split('_');
-
-            //set key
-            $('.options #key label').filter(function () {
-                if ($(this).text() == chord[0]) {
-                    this.click();
-                }
-            });
-
-            //set type
-            $('.options #type label').filter(function () {
-                if ($(this).text() == chord[1]) {
-                    this.click();
-                }
-            });
-
-            //add the chord
-            $('a#add').click();
-
-        });
-
-    }
-    catch (e) {
-    }
+    MPCCF.load(true);
 
     //(re)activate current layout
     $('.options #layout label.ui-state-active').click();
 
-
     //activate first chord on load
     $('.options fieldset#key label.ui-state-active').click();
-
-    //store data in URL hash
-    function refreshHash() {
-        var data = {};
-        data['layout'] = $('.options #layout label.ui-state-active').data('layout');
-        data['collection'] = [];
-        $('.collection .pads').each(function () {
-            var name = $(this).find('.name').html().replace(' ', '_');
-            data['collection'].push(name);
-        });
-
-        location.hash = JSON.stringify(data);
-    }
 });
