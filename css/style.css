@@ -150,7 +150,7 @@ a#add,
 a#clear {
   background: #eee;
   display: block;
-  width: 100px;
+  width: 120px;
   height: 80px;
   line-height: 20px;
   padding-top: 20px;
@@ -161,6 +161,10 @@ a#clear {
   margin-top: 330px;
   color: #ccc;
   margin-right: 10px;
+}
+
+a#clear {
+  margin-right: 0;
 }
 
 a#add:hover,
