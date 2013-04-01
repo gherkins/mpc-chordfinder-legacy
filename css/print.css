@@ -6,7 +6,8 @@ a#add,
 a#clear,
 a.remove,
 iframe,
-a#github {
+a#github,
+#share {
   display: none;
 }
 
