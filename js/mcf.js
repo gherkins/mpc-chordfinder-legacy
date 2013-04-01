@@ -29,6 +29,7 @@ MPCCF.load = function (withLayout) {
             $('.options #layout label[data-layout="' + data.layout + '"]').click();
         }
 
+        $('.collection .pads').remove();
         //load collection from URL data
         $(data.collection).each(function () {
             var chord = this.split('_');
@@ -68,6 +69,16 @@ MPCCF.refreshHash = function refreshHash() {
     });
 
     location.hash = JSON.stringify(data);
+}
+
+//activate Layout
+MPCCF.activateLayout = function (layout) {
+    $('.current .pads')
+        .removeClass('pads12')
+        .removeClass('pads16')
+        .addClass(layout);
+    $('.current .pads').html($('template#' + layout).html());
+    $('.options fieldset#key label.ui-state-active').click();
 }
 
 $(function () {
@@ -155,22 +166,15 @@ $(function () {
 
     //layout switch
     $('.options #layout label').on('click', function () {
-        var layout = $(this).data('layout');
-        $('.current .pads')
-            .removeClass('pads12')
-            .removeClass('pads16')
-            .addClass(layout);
-        $('.current .pads').html($('template#' + layout).html());
-        $('.options fieldset#key label.ui-state-active').click();
+        MPCCF.activateLayout($(this).data('layout'));
         MPCCF.refreshHash();
-        $('.collection .pads').remove();
         MPCCF.load(false);
     });
 
+    //initially load collection data
     MPCCF.load(true);
-
     //(re)activate current layout
-    $('.options #layout label.ui-state-active').click();
+    MPCCF.activateLayout($('.options #layout label.ui-state-active').data('layout'))
 
     //activate first chord on load
     $('.options fieldset#key label.ui-state-active').click();
