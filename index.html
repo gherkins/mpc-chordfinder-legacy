@@ -10,6 +10,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/music.js"></script>
     <script type="text/javascript" src="js/mcf.js"></script>
+    <script type="text/javascript" src="js/jquery.sharrre-1.3.4.min.js"></script>
+
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="keywords" content="akai, mpc, chord, chords, chordfinder, pads, tool">
@@ -24,8 +26,11 @@
 
 <div class="wrap">
 
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://gherkins.github.com/mpc-chordfinder/" data-via="mgherkins" data-hashtags="mpc,pads,chords,tools">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <div id="share">
+        <div id="facebook" data-url="gherkins.github.com/mpc-chordfinder/" data-text="MPC chord-finder - locate chords on the Akai MPCs pads" data-title="Like"></div>
+        <div id="twitter" data-url="gherkins.github.com/mpc-chordfinder/" data-text="MPC chord-finder - locate chords on the Akai MPCs pads" data-title="Tweet"></div>
+    </div>
 
     <h1>
         MPC-Chord-Finder
@@ -35,7 +40,8 @@
         it's a tool to locate chords on the <a href="http://www.akaipro.com/mpc">Akai MPCs</a> pads.
         <br>
         <br>
-        Select a single note sample (poly mode), hit 16/12LEVELS(tuning), grab a <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
+        Select a single note sample (poly mode), hit 16/12LEVELS(tuning), grab a
+        <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
         <br>
         <br>
         You can add chords to the collection by pressing the button "add to collection".<br>
@@ -253,6 +259,36 @@
 
     <div class="clear"></div>
 </template>
+
+<script>
+    $(function () {
+
+        $('#twitter').sharrre({
+            share: {
+                twitter: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            buttons: { twitter: {via: '_JulienH'}},
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('twitter');
+            }
+        });
+        $('#facebook').sharrre({
+            share: {
+                facebook: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('facebook');
+            }
+        });
+
+    });
+</script>
 
 </body>
 </html>
