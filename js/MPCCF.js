@@ -22,11 +22,13 @@ MPCCF.intervalShortnames = {
 MPCCF.load = function (withLayout) {
     //load data from URL
     try {
-        var data = JSON.parse(decodeURIComponent(location.hash.substring('1')));
+        var data = JSON.parse($.base64.decode(decodeURIComponent(location.hash.substring('1'))));
 
         if (true === withLayout) {
             //apply layout
-            $('.options #layout label[data-layout="' + data.layout + '"]').click();
+            MPCCF.activateLayout(data.layout);
+            $('.options #layout label').removeClass('ui-state-active');
+            $('.options #layout label[data-layout="' + data.layout + '"]').addClass('ui-state-active');
         }
 
         $('.collection .pads').remove();
@@ -49,9 +51,12 @@ MPCCF.load = function (withLayout) {
             });
 
             //add the chord
-            $('a#add').click();
+            MPCCF.addCurrentChordToCollection();
 
         });
+
+        //refresh hash
+        MPCCF.refreshHash();
 
     }
     catch (e) {
@@ -68,7 +73,7 @@ MPCCF.refreshHash = function refreshHash() {
         data['collection'].push(name);
     });
 
-    location.hash = JSON.stringify(data);
+    location.hash = encodeURIComponent($.base64.encode(JSON.stringify(data)));
 }
 
 //activate Layout
@@ -79,6 +84,30 @@ MPCCF.activateLayout = function (layout) {
         .addClass(layout);
     $('.current .pads').html($('template#' + layout).html());
     $('.options fieldset#key label.ui-state-active').click();
+}
+
+MPCCF.addCurrentChordToCollection = function () {
+    var name = $('fieldset#key label.ui-state-active .ui-button-text').html()
+    name += ' ' + $('fieldset#type label.ui-state-active .ui-button-text').html();
+
+    //chord name
+    var nameLabel = $('<div/>')
+        .addClass('name')
+        .html(name);
+
+    //remove link
+    var remove = $('<a/>')
+        .addClass('remove')
+        .attr('href', '#')
+        .html('x');
+
+    //clone pads and append to collection
+    $('.current .pads')
+        .clone()
+        .prepend(remove)
+        .prepend(nameLabel)
+        .appendTo('.collection')
+        .find('.interval').remove();
 }
 
 $(function () {
@@ -120,27 +149,7 @@ $(function () {
     $('a#add').on('click', function (e) {
         e.preventDefault();
 
-        var name = $('fieldset#key label.ui-state-active .ui-button-text').html()
-        name += ' ' + $('fieldset#type label.ui-state-active .ui-button-text').html();
-
-        //chord name
-        var nameLabel = $('<div/>')
-            .addClass('name')
-            .html(name);
-
-        //remove link
-        var remove = $('<a/>')
-            .addClass('remove')
-            .attr('href', '#')
-            .html('x');
-
-        //clone pads and append to collection
-        $('.current .pads')
-            .clone()
-            .prepend(remove)
-            .prepend(nameLabel)
-            .appendTo('.collection')
-            .find('.interval').remove();
+        MPCCF.addCurrentChordToCollection();
 
         MPCCF.refreshHash();
 
