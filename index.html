@@ -29,8 +29,7 @@
 
 
     <div id="share">
-        <div id="facebook" data-url="gherkins.github.com/mpc-chordfinder/" data-text="MPC chord-finder - locate chords on the Akai MPCs pads" data-title="Like"></div>
-        <div id="twitter" data-url="gherkins.github.com/mpc-chordfinder/" data-text="MPC chord-finder - locate chords on the Akai MPCs pads" data-title="Tweet"></div>
+        <div id="share_link" data-url="gherkins.github.com/mpc-chordfinder/" data-text="MPC chord-finder - locate chords on the Akai MPCs pads"></div>
     </div>
 
     <h1>
@@ -264,28 +263,18 @@
 <script>
     $(function () {
 
-        $('#twitter').sharrre({
+        $('#share_link').sharrre({
             share: {
+                facebook: true,
                 twitter: true
             },
-            enableHover: false,
-            enableTracking: true,
-            buttons: { twitter: {via: '_JulienH'}},
-            click: function (api, options) {
-                api.simulateClick();
-                api.openPopup('twitter');
-            }
-        });
-        $('#facebook').sharrre({
-            share: {
-                facebook: true
+            buttons: {
+                facebook: {layout: 'box_count'},
+                twitter: {count: 'vertical'},
             },
             enableHover: false,
-            enableTracking: true,
-            click: function (api, options) {
-                api.simulateClick();
-                api.openPopup('facebook');
-            }
+            enableCounter: false,
+            enableTracking: true
         });
 
     });
