@@ -187,6 +187,10 @@ a#clear:hover {
   margin-top: 47px;
 }
 
+#share a {
+  text-decoration: none;
+}
+
 .sharrre .box {
   background: #6f838c;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(#6f838c, 0), color-stop(#4d5e66, 1));
