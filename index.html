@@ -70,7 +70,9 @@
         Then try printing the page in landscape mode.
         <br>
         <br>
-        Try <a href="http://web-development.cc/mpc-chordfinder/#eyJsYXlvdXQiOiJwYWRzMTIiLCJjb2xsZWN0aW9uIjpbIkFfbWluNyIsIkRfNyIsIkdfbWFqNyIsIkNfbWFqNyIsIkYjL0diX21pbjdiNSIsIkJfNyIsIkVfbWluIiwiRV9taW4iXX0%3D">this example</a>!
+        Try
+        <a href="#" id="example" data-hash="eyJsYXlvdXQiOiJwYWRzMTYiLCJjb2xsZWN0aW9uIjpbIkFfbWluNyIsIkRfNyIsIkdfbWFqNyIsIkNfbWFqNyIsIkYjL0diX21pbjdiNSIsIkJfNyIsIkVfbWluIiwiRV9taW4iXX0%3D">this
+            example</a>!
     </p>
 
 
@@ -305,6 +307,12 @@
                     api.openPopup('googlePlus');
                 });
             }
+        });
+
+        $('a#example').on('click', function (e) {
+            e.preventDefault();
+            location.hash = $(this).data('hash');
+            MPCCF.load(true);
         });
 
     });
