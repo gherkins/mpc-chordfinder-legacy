@@ -1,24 +1,6 @@
 function MPCCF() {
 };
 
-MPCCF.intervalShortnames = {
-    'unison': '1',
-    'minor second': 'b2',
-    'major second': '2',
-    'minor third': 'b3',
-    'major third': '3',
-    'fourth': '4',
-    'augmented fourth': '#4',
-    'tritone': 'b5',
-    'diminished fifth': 'b5',
-    'fifth': '5',
-    'minor sixth': 'b6',
-    'major sixth': '6',
-    'minor seventh': 'b7',
-    'major seventh': '7',
-    'octave': '1'
-}
-
 MPCCF.load = function (withLayout) {
     //load data from URL
     try {
@@ -27,8 +9,8 @@ MPCCF.load = function (withLayout) {
         if (true === withLayout) {
             //apply layout
             MPCCF.activateLayout(data.layout);
-            $('.options #layout label').removeClass('ui-state-active');
-            $('.options #layout label[data-layout="' + data.layout + '"]').addClass('ui-state-active');
+            $('#layout button').removeClass('active');
+            $('#layout button[data-layout="' + data.layout + '"]').addClass('active');
         }
 
         $('.collection .pads').remove();
@@ -66,7 +48,7 @@ MPCCF.load = function (withLayout) {
 //store data in URL hash
 MPCCF.refreshHash = function refreshHash() {
     var data = {};
-    data['layout'] = $('.options #layout label.ui-state-active').data('layout');
+    data['layout'] = $('#layout button.active').data('layout');
     data['collection'] = [];
     $('.collection .pads').each(function () {
         var name = $(this).find('.name').html().replace(' ', '_');
@@ -83,12 +65,12 @@ MPCCF.activateLayout = function (layout) {
         .removeClass('pads16')
         .addClass(layout);
     $('.current .pads').html($('template#' + layout).html());
-    $('.options fieldset#key label.ui-state-active').click();
+    $('.options fieldset#key button.active').click();
 }
 
 MPCCF.addCurrentChordToCollection = function () {
-    var name = $('fieldset#key label.ui-state-active .ui-button-text').html()
-    name += ' ' + $('fieldset#type label.ui-state-active .ui-button-text').html();
+    var name = $('fieldset#key button.active').text()
+    name += ' ' + $('fieldset#type button.active').text();
 
     //chord name
     var nameLabel = $('<div/>')
@@ -99,7 +81,7 @@ MPCCF.addCurrentChordToCollection = function () {
     var remove = $('<a/>')
         .addClass('remove')
         .attr('href', '#')
-        .html('x');
+        .html('X');
 
     //clone pads and append to collection
     $('.current .pads')
@@ -112,13 +94,13 @@ MPCCF.addCurrentChordToCollection = function () {
 
 $(function () {
 
-    $('.options input').button();
+    $('.options #key button, .options #type button').on('click', function () {
 
-    //
-    $('.options #key label, .options #type label').on('click', function () {
+        $(this).parent().find('button').removeClass('active');
+        $(this).addClass('active');
 
-        var key = $('fieldset#key label.ui-state-active').data('key');
-        var intervals = $('fieldset#type label.ui-state-active').data('intervals');
+        var key = $('fieldset#key button.active').data('key');
+        var intervals = $('fieldset#type button.active').data('intervals');
 
         if (null === key || undefined === key || null === intervals || undefined === intervals) {
             return;
@@ -133,20 +115,15 @@ $(function () {
         var chord = root.add(intervals);
 
         $(chord).each(function (key) {
-
-            //shortname for on-pad display
-            var intervalShortname = MPCCF.intervalShortnames[intervals[key]];
-
             //highlight PAD and add note- and interval name
             $('.current .pads .pad[data-key="' + this.latin() + '"], .current .pads .pad[data-key-2="' + this.latin() + '"]')
-                .addClass('highlight')
-                .find('.interval').html(intervalShortname + ':' + this.latin());
+                .addClass('highlight');
         });
 
     });
 
     //add chord to collection
-    $('a#add').on('click', function (e) {
+    $('button#add').on('click', function (e) {
         e.preventDefault();
 
         MPCCF.addCurrentChordToCollection();
@@ -156,7 +133,7 @@ $(function () {
     });
 
     //clear collection
-    $('a#clear').on('click', function (e) {
+    $('button#clear').on('click', function (e) {
         e.preventDefault();
         $('.collection .pads .remove').each(function () {
             $(this).click();
@@ -174,7 +151,9 @@ $(function () {
     });
 
     //layout switch
-    $('.options #layout label').on('click', function () {
+    $('#layout button').on('click', function () {
+        $('#layout button').removeClass('active');
+        $(this).addClass('active');
         MPCCF.activateLayout($(this).data('layout'));
         MPCCF.refreshHash();
         MPCCF.load(false);
@@ -183,8 +162,8 @@ $(function () {
     //initially load collection data
     MPCCF.load(true);
     //(re)activate current layout
-    MPCCF.activateLayout($('.options #layout label.ui-state-active').data('layout'))
+    MPCCF.activateLayout($('#layout button.active').data('layout'))
 
     //activate first chord on load
-    $('.options fieldset#key label.ui-state-active').click();
+    $('.options fieldset#key button.active').click();
 });

@@ -1,28 +1,47 @@
 body {
-  padding: 10px;
-  font-family: "Droid", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 14px;
+  color: #fff;
+  background: #4f81ff;
+  background: -moz-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #4f81ff), color-stop(50%, #3862fd), color-stop(100%, #2144fb));
+  background: -webkit-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
+  background: -o-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
+  background: -ms-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
+  background: linear-gradient(135deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f81ff', endColorstr='#2144fb', GradientType=1);
 }
 
 h1 {
-  text-transform: uppercase;
   font-size: 32px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
-p {
+p.intro {
+  width: 265px;
+  float: right;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+body > #main {
+  padding-top: 60px;
+}
+
+body > #main > .top {
+  border-bottom: 1px solid #90acff;
   margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .wrap {
-  width: 960px;
+  width: 860px;
   margin: 0 auto;
-}
-
-a.twitter-share-button,
-iframe {
-  float: right;
-  margin-top: 47px;
 }
 
 .options {
@@ -31,81 +50,106 @@ iframe {
   position: relative;
 }
 
+fieldset#layout {
+  display: inline-block;
+  box-shadow: 2px 2px 0 #90adfe;
+  padding: 0;
+}
+
+fieldset#layout button {
+  width: 118px;
+  height: 38px;
+  margin-right: 0;
+  display: block;
+  float: left;
+  border: none;
+  background: #315cff;
+  background: -moz-linear-gradient(top, #315cff 0%, #3a6dff 12%, #3869ff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #315cff), color-stop(12%, #3a6dff), color-stop(100%, #3869ff));
+  background: -webkit-linear-gradient(top, #315cff 0%, #3a6dff 12%, #3869ff 100%);
+  background: -o-linear-gradient(top, #315cff 0%, #3a6dff 12%, #3869ff 100%);
+  background: -ms-linear-gradient(top, #315cff 0%, #3a6dff 12%, #3869ff 100%);
+  background: linear-gradient(to bottom, #315cff 0%, #3a6dff 12%, #3869ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#315cff', endColorstr='#3869ff', GradientType=0);
+  color: #89a7ff;
+  font-size: 16px;
+  margin: 0;
+}
+
+fieldset#layout button.active {
+  background: #4f81ff;
+  height: 38px;
+  width: 120px;
+  border: 1px solid #5f8dff;
+  color: #fff;
+}
+
+fieldset#layout button:hover {
+  cursor: pointer;
+}
+
 .options fieldset {
   float: left;
-  width: 100px;
+  width: 110px;
   margin-right: 10px;
 }
 
-.options fieldset#layout {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.options fieldset#key {
+  padding-top: 81px;
 }
 
-.options fieldset label {
+.options fieldset button {
   display: block;
   margin-bottom: 4px;
   height: 23px;
-  border-radius: 0;
-  background: #eee;
+  width: 78px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #a1b7ff;
 }
 
-.options fieldset label.ui-state-active {
-  background: #fff;
-  color: #000;
-  border-color: #000;
-  font-weight: bold;
+.options fieldset button.active {
+  background: #7596ff;
+  color: #fff;
+  border-color: #a2b9ff;
 }
 
-.options fieldset label .ui-button-text {
-  padding: 0;
-  line-height: 23px;
+.options fieldset button:hover {
+  border-color: #5c83ff;
+  cursor: pointer;
 }
 
 .pads {
   width: 480px;
   float: left;
-}
-
-.current .pads.pads16 .pad {
-  width: 108px;
+  padding: 5px 0 0 5px;
 }
 
 .pads .pad {
   position: relative;
   float: left;
-  width: 148px;
-  height: 98px;
+  width: 108px;
+  height: 108px;
   line-height: 100px;
   text-align: center;
-  background: #eee;
+  background: #b1c3fe;
+  opacity: 0.9;
   color: #E8E8E8;
-  margin: 0 10px 10px 0;
+  margin: 10px 0 0 10px;
   font-size: 90px;
   border: 1px solid darkgrey;
-  box-shadow: 2px 2px 0px #aaa;
+  transition: opacity 0.25s ease-in-out;
+  box-shadow: 2px 2px 0px #2144fb;
 }
 
-.pads .pad .interval {
-  display: block;
-  width: 120px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  font-size: 10px;
-  line-height: 10px;
-  text-align: right;
-}
-
-.pads .pad .note {
-  font-size: 10px;
+.current .pads.pads12 .pad {
+  width: 148px;
 }
 
 .pads .pad.highlight {
-  color: #000;
-  background: #1ba9fc;
-  box-shadow: 1px 1px 0px #eee;
+  background: #fff;
+  opacity: 1;
+  box-shadow: 0px 0px 5px #fff;
 }
 
 /*collection*/
@@ -123,27 +167,63 @@ iframe {
 
 .collection .pads .name {
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .collection .pads .remove {
+  display: block;
   position: absolute;
-  right: 20px;
-  top: 0;
+  right: 2px;
+  top: 26px;
   text-decoration: none;
-  color: #000;
+  color: #3862fd;
+  border-radius: 1px;
+  background: #fff;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  font-size: 16px;
 }
 
 .collection .pads .pad {
   width: 46px;
   height: 38px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin: 0 5px 5px 0;
   box-shadow: none;
 }
 
 .collection .pads.pads16 .pad {
   width: 33px;
   height: 33px;
+}
+
+.actions {
+  border-top: 1px solid #90acff;
+  border-bottom: 1px solid #90acff;
+  height: 40px;
+}
+
+.actions button {
+  height: 40px;
+  border: none;
+  display: block;
+  float: left;
+  background: transparent;
+  border-left: 1px solid #90acff;
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.actions button#clear {
+  border-right: 1px solid #90acff;
+}
+
+.actions button:hover {
+  cursor: pointer;
+  color: #90acff;
 }
 
 a#add,
@@ -158,7 +238,6 @@ a#clear {
   font-size: 20px;
   text-decoration: none;
   float: left;
-  margin-top: 330px;
   color: #ccc;
   margin-right: 10px;
 }
@@ -180,116 +259,61 @@ a#clear:hover {
   display: none;
 }
 
-/*share*/
-
-#share {
-  float: right;
-  margin-top: 47px;
-}
-
-#share a {
-  text-decoration: none;
-}
-
-.sharrre .box {
-  background: #6f838c;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(#6f838c, 0), color-stop(#4d5e66, 1));
-  background: -webkit-linear-gradient(top, #6f838c 0%, #4d5e66 100%);
-  background: -moz-linear-gradient(top, #6f838c 0%, #4d5e66 100%);
-  background: -o-linear-gradient(top, #6f838c 0%, #4d5e66 100%);
-  background: linear-gradient(top, #6f838c 0%, #4d5e66 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6f838c', endColorstr='#4d5e66', GradientType=0);
-  -webkit-box-shadow: 0 1px 1px #d3d3d3;
-  -moz-box-shadow: 0 1px 1px #d3d3d3;
-  box-shadow: 0 1px 1px #d3d3d3;
-  height: 22px;
-  display: inline-block;
-  position: relative;
-  padding: 0px 55px 0 8px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 12px;
-  float: left;
-  clear: both;
-  overflow: hidden;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-
-.sharrre .left {
-  line-height: 22px;
+section#mpc_container {
   display: block;
-  white-space: nowrap;
-  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  width: 502px;
+  height: 502px;
+  position: relative;
+  perspective-origin-x: 100%;
+  perspective-origin-y: 0%;
+  perspective: 1500px;
+  top: 100px;
+  left: 300px;
 }
 
-.sharrre .middle {
-  position: absolute;
-  height: 22px;
-  top: 0px;
-  right: 30px;
-  width: 0px;
-  background: #63707e;
-  text-shadow: 0px -1px 1px #363f49;
-  color: #fff;
-  white-space: nowrap;
-  text-align: left;
-  overflow: hidden;
-  -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-  -webkit-transition: width 0.3s linear;
-  -moz-transition: width 0.3s linear;
-  -o-transition: width 0.3s linear;
-  transition: width 0.3s linear;
-}
-
-.sharrre .middle a {
-  color: #fff;
-  font-weight: bold;
-  padding: 0 9px 0 9px;
-  text-align: center;
-  float: left;
-  line-height: 22px;
-  -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-}
-
-.sharrre .right {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+#mpc {
+  width: 100%;
   height: 100%;
-  width: 45px;
-  text-align: center;
-  line-height: 22px;
-  color: #4b5d61;
-  background: #f1faf9;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(#f1faf9, 0), color-stop(#bacfd2, 1));
-  background: -webkit-linear-gradient(top, #f1faf9 0%, #bacfd2 100%);
-  background: -moz-linear-gradient(top, #f1faf9 0%, #bacfd2 100%);
-  background: -o-linear-gradient(top, #f1faf9 0%, #bacfd2 100%);
-  background: linear-gradient(top, #f1faf9 0%, #bacfd2 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1faf9', endColorstr='#bacfd2', GradientType=0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform: translateZ(-250px) rotateX(-37deg) rotateY(-15deg);
 }
 
-.sharrre .box:hover {
-  padding-right: 130px;
+#mpc figure {
+  width: 500px;
+  height: 500px;
+  display: block;
+  position: absolute;
+  border: 1px solid #fff;
 }
 
-.sharrre .middle a:hover {
-  text-decoration: none;
+#mpc .front {
+  height: 85px;
+  transform: rotateY(0deg) translateZ(250px);
 }
 
-.sharrre .box:hover .middle {
-  width: 90px;
+#mpc .back {
+  height: 85px;
+  transform: rotateX(180deg) translateZ(250px);
+}
+
+#mpc .right {
+  height: 85px;
+  transform: rotateY(90deg) translateZ(250px);
+}
+
+#mpc .left {
+  height: 85px;
+  transform: rotateY(-90deg) translateZ(250px);
+}
+
+#mpc .top {
+  transform: rotateX(90deg) translateZ(250px);
+}
+
+#mpc .bottom {
+  transform: rotateX(-90deg) translateZ(-165px);
 }

@@ -1,22 +1,18 @@
-h1,
-p,
-.options,
-.current,
-a#add,
-a#clear,
-a.remove,
-iframe,
-a#github,
-#share {
+#main,
+.collection .pads .remove {
   display: none;
 }
 
 .collection {
-  marign: 30px 0;
+  margin: 30px 0;
 }
 
 .collection .pads {
   margin-bottom: 20px;
+}
+
+.collection .pads .name {
+  color: #000;
 }
 
 .collection .pads .pad.highlight {
