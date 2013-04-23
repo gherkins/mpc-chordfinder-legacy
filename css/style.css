@@ -156,6 +156,7 @@ fieldset#layout button:hover {
 
 .collection {
   padding: 30px 0;
+  z-index: 1000;
 }
 
 .collection .pads {
@@ -211,6 +212,8 @@ fieldset#layout button:hover {
   border-top: 1px solid #90acff;
   border-bottom: 1px solid #90acff;
   height: 40px;
+  position: relative;
+  z-index: 1000;
 }
 
 .actions button {
@@ -223,41 +226,16 @@ fieldset#layout button:hover {
   color: #fff;
   font-size: 15px;
   margin: 0;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
-.actions button#clear {
+.actions button#print {
   border-right: 1px solid #90acff;
 }
 
 .actions button:hover {
   cursor: pointer;
   color: #90acff;
-}
-
-a#add,
-a#clear {
-  background: #eee;
-  display: block;
-  width: 120px;
-  height: 80px;
-  line-height: 20px;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 20px;
-  text-decoration: none;
-  float: left;
-  color: #ccc;
-  margin-right: 10px;
-}
-
-a#clear {
-  margin-right: 0;
-}
-
-a#add:hover,
-a#clear:hover {
-  color: #aaa;
 }
 
 .clear {
