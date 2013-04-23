@@ -15,20 +15,24 @@
   color: #000;
 }
 
+.collection .pads .pad {
+  border-color: darkgrey;
+}
+
 .collection .pads .pad.highlight {
   width: 0px;
   height: 0px;
-  border-left: 24px solid darkgrey;
-  border-right: 24px solid darkgrey;
-  border-top: 20px solid darkgrey;
-  border-bottom: 20px solid darkgrey;
+  border-left: 12px solid darkgrey;
+  border-right: 13px solid darkgrey;
+  border-top: 12px solid darkgrey;
+  border-bottom: 13px solid darkgrey;
 }
 
-.collection .pads.pads16 .pad.highlight {
+.collection .pads.pads12 .pad.highlight {
   width: 0px;
   height: 0px;
-  border-left: 18px solid darkgrey;
+  border-left: 16px solid darkgrey;
   border-right: 17px solid darkgrey;
-  border-top: 18px solid darkgrey;
-  border-bottom: 17px solid darkgrey;
+  border-top: 12px solid darkgrey;
+  border-bottom: 13px solid darkgrey;
 }

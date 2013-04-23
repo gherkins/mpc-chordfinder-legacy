@@ -159,10 +159,27 @@ fieldset#layout button:hover {
 }
 
 .collection .pads {
-  width: 172px;
+  width: 135px;
   margin-right: 20px;
   position: relative;
   padding-bottom: 20px;
+}
+
+.collection .pads .pad {
+  width: 23px;
+  height: 23px;
+  margin: 0 5px 5px 0;
+  box-shadow: none;
+  border: 1px solid #bacbff;
+  background: transparent;
+}
+
+.collection .pads .pad.highlight {
+  background: #7596ff;
+}
+
+.collection .pads.pads12 .pad {
+  width: 33px;
 }
 
 .collection .pads .name {
@@ -186,16 +203,8 @@ fieldset#layout button:hover {
   font-size: 16px;
 }
 
-.collection .pads .pad {
-  width: 46px;
-  height: 38px;
-  margin: 0 5px 5px 0;
-  box-shadow: none;
-}
-
-.collection .pads.pads16 .pad {
-  width: 33px;
-  height: 33px;
+.collection .pads .remove:hover {
+  opacity: 0.4;
 }
 
 .actions {
