@@ -19,14 +19,14 @@ MPCCF.load = function (withLayout) {
             var chord = this.split('_');
 
             //set key
-            $('.options #key label').filter(function () {
+            $('.options #key button').filter(function () {
                 if ($(this).text() == chord[0]) {
                     this.click();
                 }
             });
 
             //set type
-            $('.options #type label').filter(function () {
+            $('.options #type button').filter(function () {
                 if ($(this).text() == chord[1]) {
                     this.click();
                 }
