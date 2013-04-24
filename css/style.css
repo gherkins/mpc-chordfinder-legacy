@@ -22,6 +22,7 @@ button{
 }
 
 h1 {
+  font-weight: bold;
   font-size: 32px;
   margin-bottom: 25px;
 }
@@ -84,6 +85,7 @@ fieldset#layout button {
   color: #89a7ff;
   font-size: 16px;
   margin: 0;
+  font-weight: bold;
 }
 
 fieldset#layout button.active {
@@ -229,6 +231,7 @@ fieldset#layout button:hover {
   border: none;
   display: block;
   float: left;
+  font-weight: bold;
   background: transparent;
   border-left: 1px solid #90acff;
   color: #fff;
