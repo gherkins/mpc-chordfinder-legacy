@@ -326,7 +326,7 @@ section#mpc_container {
 }
 
 .no-csstransforms3d section#mpc_container {
-  top: 0;
-  left: 300px;
+  top: -50px;
+  left: 250px;
 }
 
