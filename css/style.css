@@ -343,6 +343,8 @@ section#mpc_container {
   display: none !important;
 }
 
-.joyride-tip-guide[data-index="0"]{
-  margin-top: -15px;
+#headline{
+  display: inline-block;
+  height: 32px;
+  width: 0px;
 }
