@@ -1,4 +1,9 @@
+html{
+  min-height: 100%;
+}
+
 body {
+  min-height: 100%;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: #fff;
@@ -10,6 +15,10 @@ body {
   background: -ms-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
   background: linear-gradient(135deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f81ff', endColorstr='#2144fb', GradientType=1);
+}
+
+button{
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 h1 {
