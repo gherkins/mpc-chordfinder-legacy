@@ -1,4 +1,4 @@
-html{
+html {
   min-height: 100%;
 }
 
@@ -17,7 +17,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f81ff', endColorstr='#2144fb', GradientType=1);
 }
 
-button{
+button {
   font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -315,3 +315,18 @@ section#mpc_container {
 #mpc .bottom {
   transform: rotateX(-90deg) translateZ(-165px);
 }
+
+.no-csstransforms3d #mpc figure {
+  display: none;
+}
+
+.no-csstransforms3d #mpc figure.top {
+  display: block;
+  transform: none;
+}
+
+.no-csstransforms3d section#mpc_container {
+  top: 0;
+  left: 100px;
+}
+
