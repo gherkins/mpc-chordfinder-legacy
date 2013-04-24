@@ -272,17 +272,17 @@
             preStepCallback: function (index, tip) {
                 switch (index) {
                     case 2:
-                        $('#key button').on('click', function () {
+                        $('#key button').on('click.tour', function () {
                             tip.find('.joyride-next-tip').click();
                         });
                         break;
                     case 3:
-                        $('#type button').on('click', function () {
+                        $('#type button').on('click.tour', function () {
                             tip.find('.joyride-next-tip').click();
                         });
                         break;
                     case 4:
-                        $('#add').on('click', function () {
+                        $('#add').on('click.tour', function () {
                             tip.find('.joyride-next-tip').click();
                         });
                         break;
@@ -291,15 +291,15 @@
             postStepCallback: function (index) {
                 switch (index) {
                     case 2:
-                        $('#key button').off('click');
+                        $('#key button').off('click.tour');
                         break;
                     case 3:
-                        $('#type button').off('click');
+                        $('#type button').off('click.tour');
                         break;
                     case 4:
-                        $('#add').off('click');
-                        if (0 === $('.collection .pads').length) {
-                            $('.actions #add').click();
+                        $('#add').off('click.tour');
+                        if (0 == $('.collection .pads').length) {
+                            $('button#add').click();
                         }
                         break;
                 }
