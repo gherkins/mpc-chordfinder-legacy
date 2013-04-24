@@ -219,6 +219,12 @@
         </p>
         <a href="#" class="joyride-next-tip">Next</a>
     </li>
+    <li data-id="mpc_container" data-options="tipLocation:top">
+        <p>
+            And see the chord displayed here.<br>
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
     <li data-id="add" data-options="tipLocation:top">
         <p>
             Add the chord to your chord collection...
@@ -281,7 +287,7 @@
                             tip.find('.joyride-next-tip').click();
                         });
                         break;
-                    case 4:
+                    case 5:
                         $('#add').on('click.tour', function () {
                             tip.find('.joyride-next-tip').click();
                         });
@@ -296,7 +302,7 @@
                     case 3:
                         $('#type button').off('click.tour');
                         break;
-                    case 4:
+                    case 5:
                         $('#add').off('click.tour');
                         if (0 == $('.collection .pads').length) {
                             $('button#add').click();
