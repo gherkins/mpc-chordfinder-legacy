@@ -1,5 +1,6 @@
 html {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
   background: -ms-linear-gradient(-45deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
   background: linear-gradient(135deg, #4f81ff 0%, #3862fd 50%, #2144fb 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f81ff', endColorstr='#2144fb', GradientType=1);
+  overflow-x: hidden;
 }
 
 button {
