@@ -268,27 +268,16 @@
             cookieMonster: false,
             autoStart: true,
             nextButton: false,
-            preStepCallback: function (index) {
-                switch (index) {
-                    case 2:
-                        $('fieldset#key button:nth-child(5)').click();
-                        break;
-                    case 3:
-                        $('fieldset#type button:nth-child(3)').click();
-                        break;
-                }
-            },
             postStepCallback: function (index) {
                 switch (index) {
                     case 4:
-                        $('.actions #add').click();
+                        if (0 === $('.collection .pads').length) {
+                            $('.actions #add').click();
+                        }
                         break;
-//                    case 6:
-//                        $('.actions #clear').click();
-//                        break;
                 }
             },
-            modal: true,
+            modal: false,
             expose: true
         });
 
