@@ -326,7 +326,6 @@ section#mpc_container {
 .no-csstransforms3d #mpc figure.top {
   display: block;
   transform: none;
-  margin-bottom: 30px;
 }
 
 .no-csstransforms3d section#mpc_container {
@@ -334,3 +333,6 @@ section#mpc_container {
   left: 250px;
 }
 
+.no-csstransforms3d .actions {
+  margin-top: 40px;
+}
