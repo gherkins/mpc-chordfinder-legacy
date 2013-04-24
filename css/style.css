@@ -92,6 +92,7 @@ fieldset#layout button {
 
 fieldset#layout button.active {
   background: #4f81ff;
+  filter: none;
   height: 38px;
   width: 120px;
   border: 1px solid #5f8dff;
@@ -328,7 +329,7 @@ section#mpc_container {
 }
 
 .no-csstransforms3d section#mpc_container {
-  top: -50px;
+  top: -15px;
   left: 250px;
 }
 
