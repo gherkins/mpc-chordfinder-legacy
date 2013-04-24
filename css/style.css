@@ -169,7 +169,6 @@ fieldset#layout button:hover {
 
 .collection {
   padding: 30px 0;
-  z-index: 1000;
 }
 
 .collection .pads {
@@ -226,7 +225,6 @@ fieldset#layout button:hover {
   border-bottom: 1px solid #90acff;
   height: 40px;
   position: relative;
-  z-index: 1000;
 }
 
 .actions button {
@@ -319,6 +317,10 @@ section#mpc_container {
   transform: rotateX(-90deg) translateZ(-165px);
 }
 
+.tour-stop {
+  display: inline-block;
+}
+
 .no-csstransforms3d #mpc figure {
   display: none;
 }
@@ -335,4 +337,12 @@ section#mpc_container {
 
 .no-csstransforms3d .actions {
   margin-top: 40px;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.joyride-tip-guide[data-index="0"]{
+  margin-top: -15px;
 }

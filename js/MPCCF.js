@@ -90,6 +90,8 @@ MPCCF.addCurrentChordToCollection = function () {
         .prepend(nameLabel)
         .appendTo('.collection')
         .find('.interval').remove();
+
+    $('.collection').find('.clear').appendTo('.collection');
 }
 
 $(function () {

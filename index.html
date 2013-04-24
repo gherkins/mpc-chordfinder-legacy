@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="css/joyride-2.0.3.css">
 
     <script type="text/javascript" src="js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="js/vendor/prefixfree.min.js"></script>
@@ -16,6 +17,7 @@
     <script type="text/javascript" src="js/vendor/music.js"></script>
     <script type="text/javascript" src="js/vendor/jquery.base64.min.js"></script>
     <script type="text/javascript" src="js/MPCCF.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery.joyride-2.0.3.js"></script>
 
     <meta property="og:title" content="MPC-Chord-Finder">
     <meta property="og:type" content="website">
@@ -27,23 +29,6 @@
 
 <div id="main">
 
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-38888541-2']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
-
     <a href="https://github.com/gherkins/mpc-chordfinder" id="github">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">
     </a>
@@ -53,11 +38,6 @@
     <div class="top">
 
         <div class="wrap">
-
-
-            <!--<div id="share">-->
-            <!--<div id="share_link" data-url="http://web-development.cc/mpc-chordfinder/" data-text="MPC chord-finder - play chords on the Akai MPC"></div>-->
-            <!--</div>-->
 
             <p class="intro">
                 The MPC-Chord-Finder is a tool to locate chords on <a href="http://www.akaipro.com/mpc">Akai MPC</a>
@@ -70,9 +50,9 @@
                 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb-development.cc%2Fmpc-chordfinder%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
             </p>
 
-
             <h1>
-                MPC-Chord-Finder
+                MPC-Chord-Finder<br>
+                <span id="headline"></span>
             </h1>
 
             <fieldset id="layout">
@@ -90,37 +70,41 @@
         <div class="options">
 
             <fieldset id="key">
-                <button data-key="C" class="active">C</button>
-                <button data-key="C#">C#/Db</button>
-                <button data-key="D">D</button>
-                <button data-key="D#">D#/Eb</button>
-                <button data-key="E">E</button>
-                <button data-key="F">F</button>
-                <button data-key="F#">F#/Gb</button>
-                <button data-key="G">G</button>
-                <button data-key="G#">G#/Ab</button>
-                <button data-key="A">A</button>
-                <button data-key="A#">A#/Bb</button>
-                <button data-key="B">B</button>
+                <div id="key-buttons" class="tour-stop">
+                    <button data-key="C" class="active">C</button>
+                    <button data-key="C#">C#/Db</button>
+                    <button data-key="D">D</button>
+                    <button data-key="D#">D#/Eb</button>
+                    <button data-key="E">E</button>
+                    <button data-key="F">F</button>
+                    <button data-key="F#">F#/Gb</button>
+                    <button data-key="G">G</button>
+                    <button data-key="G#">G#/Ab</button>
+                    <button data-key="A">A</button>
+                    <button data-key="A#">A#/Bb</button>
+                    <button data-key="B">B</button>
+                </div>
             </fieldset>
 
             <fieldset id="type">
-                <button data-intervals='["unison", "major third", "fifth"]' class="active">maj</button>
-                <button data-intervals='["unison", "major third", "minor sixth"]'>aug</button>
-                <button data-intervals='["unison", "minor third", "fifth"]'>min</button>
-                <button data-intervals='["unison", "minor third", "diminished fifth"]'>dim</button>
-                <button data-intervals='["unison", "fourth", "fifth"]'>sus4</button>
-                <button data-intervals='["unison", "major second", "fifth"]'>sus2</button>
-                <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>maj6</button>
-                <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</button>
-                <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</button>
-                <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</button>
-                <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5</button>
-                <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</button>
-                <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</button>
-                <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</button>
-                <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</button>
-
+                <div id="type-buttons" class="tour-stop">
+                    <button data-intervals='["unison", "major third", "fifth"]' class="active">maj</button>
+                    <button data-intervals='["unison", "major third", "minor sixth"]'>aug</button>
+                    <button data-intervals='["unison", "minor third", "fifth"]'>min</button>
+                    <button data-intervals='["unison", "minor third", "diminished fifth"]'>dim</button>
+                    <button data-intervals='["unison", "fourth", "fifth"]'>sus4</button>
+                    <button data-intervals='["unison", "major second", "fifth"]'>sus2</button>
+                    <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>maj6</button>
+                    <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</button>
+                    <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</button>
+                    <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</button>
+                    <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5
+                    </button>
+                    <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</button>
+                    <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</button>
+                    <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</button>
+                    <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</button>
+                </div>
             </fieldset>
 
             <div class="clear"></div>
@@ -156,7 +140,9 @@
 </div>
 
 <div class="wrap">
-    <div class="collection"></div>
+    <div class="collection">
+        <div class="clear"></div>
+    </div>
     <div class="clear"></div>
 </div>
 
@@ -196,6 +182,136 @@
     <div class="pad" data-key="D#" data-key-2="Eb"></div>
     <div class="clear"></div>
 </template>
+
+<ol id="joyRideTipContent">
+    <li data-id="headline" data-options="nubPosition: hidden">
+        <h2>MPC-Chord-Finder</h2>
+
+        <p>
+            This is a tool to show you how to help you locate chords on your AKAI MPC
+        </p>
+
+        <p>
+            MPCs are drum samplers that look like <a href="http://www.akaipro.com/mpc" target="_blank">this</a>.
+        </p>
+        <a href="#" class="joyride-next-tip">Take the Tour</a>
+        <a href="#" class="joyride-next-tip tour-close">No Thanks</a>
+    </li>
+    <li data-id="layout" data-text="Next">
+        <h2>Pad Layout</h2>
+
+        <p>
+            select 12 or 16 pads mode<br>
+            (you can change that anytime)
+        </p>
+
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-id="key-buttons" data-options="tipLocation:top">
+        <h2>Chord key</h2>
+
+        <p>
+            If your chord is called E minor, this would be "E"
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-id="type-buttons" data-options="tipLocation:top">
+        <h2>Chord type</h2>
+
+        <p>
+            Select "minor", "major", etc.
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-id="add" data-options="tipLocation:top">
+        <h2>Add</h2>
+
+        <p>
+            Add the chord to your chord collection...
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-class="collection" data-options="tipLocation:top">
+        <h2>The collection</h2>
+
+        <p>
+            ...which you see here.
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-id="print" data-options="tipLocation:top">
+        <h2>Print it</h2>
+
+        <p>
+            Print your collection in landscape mode and take it to the stage<br>
+            Have Fun!
+        </p>
+        <a href="#" class="joyride-next-tip">Next</a>
+    </li>
+    <li data-id="clear" data-options="tipLocation:top">
+        <h2>Clear</h2>
+
+        <p>
+            Clear all chords from a collection.
+        </p>
+        <a href="#" class="joyride-next-tip">That's it!</a>
+    </li>
+
+</ol>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38888541-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(window).load(function () {
+
+        $('#joyRideTipContent').joyride({
+            cookieMonster: false,
+            autoStart: true,
+            nextButton: false,
+            preStepCallback: function (index) {
+                switch (index) {
+                    case 2:
+                        $('fieldset#key button:nth-child(5)').click();
+                        break;
+                    case 3:
+                        $('fieldset#type button:nth-child(3)').click();
+                        break;
+                }
+            },
+            postStepCallback: function (index) {
+                switch (index) {
+                    case 4:
+                        $('.actions #add').click();
+                        break;
+//                    case 6:
+//                        $('.actions #clear').click();
+//                        break;
+                }
+            },
+            modal: true,
+            expose: true
+        });
+
+        $('a.tour-close').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).parent().find('.joyride-close-tip').click();
+        });
+    });
+
+</script>
 
 </body>
 </html>
