@@ -349,3 +349,7 @@ section#mpc_container {
   height: 32px;
   width: 0px;
 }
+
+iframe{
+  float: left;
+}
