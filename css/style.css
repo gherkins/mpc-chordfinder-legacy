@@ -62,14 +62,14 @@ body > #main > .top {
   position: relative;
 }
 
-fieldset#layout {
+#layout {
   display: inline-block;
   box-shadow: 1px 1px 0 #90adfe;
   padding: 1px 0 0 1px;
   background: #315cff;
 }
 
-fieldset#layout button {
+#layout button {
   width: 118px;
   height: 38px;
   margin-right: 0;
@@ -90,7 +90,7 @@ fieldset#layout button {
   font-weight: bold;
 }
 
-fieldset#layout button.active {
+#layout button.active {
   background: #4f81ff;
   filter: none;
   height: 38px;
@@ -99,38 +99,61 @@ fieldset#layout button.active {
   color: #fff;
 }
 
-fieldset#layout button:hover {
+#layout button:hover {
   cursor: pointer;
 }
 
-.options fieldset {
+#type .left,
+#type .right {
   float: left;
-  width: 110px;
+}
+
+.options {
+  float: left;
+  width: 220px;
   margin-right: 10px;
 }
 
-.options fieldset#key {
+.options > div {
+  float: left;
+}
+
+.options #key{
+  margin-right: 20px;
   padding-top: 81px;
 }
 
-.options fieldset button {
+.options > div .left{
+  float: left;
+  margin-right: 4px;
+}
+
+.options > div .right{
+  float: left;
+}
+
+.options#key {
+  padding-top: 81px;
+}
+
+.options button {
   display: block;
   margin-bottom: 4px;
   height: 23px;
-  width: 78px;
+  width: 63px;
   background: transparent;
   color: #fff;
   border: 1px solid #a1b7ff;
   font-size: 12px;
 }
 
-.options fieldset button.active {
+.options button.active {
   background: #7596ff;
   color: #fff;
   border-color: #a2b9ff;
 }
 
-.options fieldset button:hover {
+.options button:hover {
   border-color: #5c83ff;
   cursor: pointer;
 }
@@ -341,16 +364,16 @@ section#mpc_container {
   margin-top: 40px;
 }
 
-.hidden{
+.hidden {
   display: none !important;
 }
 
-#headline{
+#headline {
   display: inline-block;
   height: 32px;
   width: 0px;
 }
 
-iframe{
+iframe {
   float: left;
 }

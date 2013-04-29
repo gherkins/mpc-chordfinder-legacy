@@ -40,8 +40,7 @@
         <div class="wrap">
 
             <p class="intro">
-                The MPC-Chord-Finder is a tool to locate chords on <a href="http://www.akaipro.com/mpc">Akai MPC</a>
-                pads.
+                The MPC-Chord-Finder is a tool to help you find some basic chords on your <a href="http://www.akaipro.com/mpc">Akai MPC</a>.
                 Select a single note sample (poly mode) &amp; tune it so that PAD1 is C, hit 16/12LEVELS (tuning), grab
                 a
                 <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
@@ -49,7 +48,15 @@
                 <br>
                 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb-development.cc%2Fmpc-chordfinder%2F&amp;send=false&amp;layout=button_count&amp;width=135&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowTransparency="true"></iframe>
                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://web-development.cc/mpc-chordfinder/" data-hashtags="mpc">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');</script>
             </p>
 
             <h1>
@@ -57,10 +64,10 @@
                 MPC-Chord-Finder
             </h1>
 
-            <fieldset id="layout">
+            <div id="layout">
                 <button data-layout="pads12" class="active">12 pads</button>
                 <button data-layout="pads16">16 pads</button>
-            </fieldset>
+            </div>
 
             <div class="clear"></div>
 
@@ -71,7 +78,7 @@
 
         <div class="options">
 
-            <fieldset id="key">
+            <div id="key">
                 <div id="key-buttons" class="tour-stop">
                     <button data-key="C" class="active">C</button>
                     <button data-key="C#">C#/Db</button>
@@ -86,28 +93,40 @@
                     <button data-key="A#">A#/Bb</button>
                     <button data-key="B">B</button>
                 </div>
-            </fieldset>
+            </div>
 
-            <fieldset id="type">
+            <div id="type">
                 <div id="type-buttons" class="tour-stop">
-                    <button data-intervals='["unison", "major third", "fifth"]' class="active">maj</button>
-                    <button data-intervals='["unison", "major third", "minor sixth"]'>aug</button>
-                    <button data-intervals='["unison", "minor third", "fifth"]'>min</button>
-                    <button data-intervals='["unison", "minor third", "diminished fifth"]'>dim</button>
-                    <button data-intervals='["unison", "fourth", "fifth"]'>sus4</button>
-                    <button data-intervals='["unison", "major second", "fifth"]'>sus2</button>
-                    <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>maj6</button>
-                    <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</button>
-                    <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</button>
-                    <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</button>
-                    <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5
-                    </button>
-                    <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</button>
-                    <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</button>
-                    <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</button>
-                    <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>7+5</button>
+                    <div class="left">
+                        <button data-intervals='["unison", "major third", "fifth"]' class="active">maj</button>
+                        <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</button>
+                        <button data-intervals='["unison", "major third", "diminished fifth", "major seventh"]'>maj7b5</button>
+                        <button data-intervals='["unison", "major third", "minor sixth", "major seventh"]'>maj7#5</button>
+                        <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>6</button>
+                        <button data-intervals='["unison", "minor third", "fifth"]'>min</button>
+                        <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</button>
+                        <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5</button>
+                        <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>min7#5</button>
+                        <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</button>
+                        <button data-intervals='["unison", "minor third", "fifth", "major seventh"]'>mmaj7</button>
+                        <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</button>
+                        <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5</button>
+                        <button data-intervals='["unison", "major third", "minor sixth", "minor seventh"]'>7#5</button>
+                        <button data-intervals='["unison", "fourth", "fifth", "minor seventh"]'>7sus4</button>
+                    </div>
+                    <div class="right">
+                        <button data-intervals='["unison", "major third", "minor sixth"]'>aug</button>
+                        <button data-intervals='["unison", "minor third", "diminished fifth"]'>dim</button>
+                        <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7</button>
+                        <button data-intervals='["unison", "fifth"]'>5</button>
+                        <button data-intervals='["unison", "major second", "fifth"]'>sus2</button>
+                        <button data-intervals='["unison", "major second","fourth", "fifth"]'>sus2sus4</button>
+                        <button data-intervals='["unison", "fourth", "fifth"]'>sus4</button>
+                        <button data-intervals='["unison", "major third", "diminished fifth"]'>-5</button>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-            </fieldset>
+            </div>
 
             <div class="clear"></div>
 
@@ -277,18 +296,11 @@
 
         $('#joyRideTipContent').joyride({
             tipAnimation: 'fade',
-            tipAnimationFadeSpeed: function () {
-                console.log(fadeSpeed);
-                return fadeSpeed;
-            },
             cookieMonster: false,
             autoStart: true,
             nextButton: false,
             preStepCallback: function (index, tip) {
                 switch (index) {
-                    case 0:
-                        fadeSpeed = 15000;
-                        break;
                     case 2:
                         $('#key button').on('click.tour', function () {
                             tip.find('.joyride-next-tip').click();
@@ -308,9 +320,6 @@
             },
             postStepCallback: function (index) {
                 switch (index) {
-                    case 0:
-                        fadeSpeed = 300;
-                        break;
                     case 2:
                         $('#key button').off('click.tour');
                         break;

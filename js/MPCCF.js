@@ -65,12 +65,12 @@ MPCCF.activateLayout = function (layout) {
         .removeClass('pads16')
         .addClass(layout);
     $('.current .pads').html($('template#' + layout).html());
-    $('.options fieldset#key button.active').click();
+    $('.options div#key button.active').click();
 }
 
 MPCCF.addCurrentChordToCollection = function () {
-    var name = $('fieldset#key button.active').text()
-    name += ' ' + $('fieldset#type button.active').text();
+    var name = $('div#key button.active').text()
+    name += ' ' + $('div#type button.active').text();
 
     //chord name
     var nameLabel = $('<div/>')
@@ -98,11 +98,11 @@ $(function () {
 
     $('.options #key button, .options #type button').on('click', function () {
 
-        $(this).parent().find('button').removeClass('active');
+        $(this).parent().parent().find('button').removeClass('active');
         $(this).addClass('active');
 
-        var key = $('fieldset#key button.active').data('key');
-        var intervals = $('fieldset#type button.active').data('intervals');
+        var key = $('div#key button.active').data('key');
+        var intervals = $('div#type button.active').data('intervals');
 
         if (null === key || undefined === key || null === intervals || undefined === intervals) {
             return;
@@ -167,5 +167,5 @@ $(function () {
     MPCCF.activateLayout($('#layout button.active').data('layout'))
 
     //activate first chord on load
-    $('.options fieldset#key button.active').click();
+    $('.options div#key button.active').click();
 });
