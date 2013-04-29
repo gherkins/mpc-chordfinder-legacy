@@ -149,7 +149,7 @@ fieldset#layout button:hover {
   line-height: 100px;
   text-align: center;
   background: #b1c3fe;
-  opacity: 0.9;
+  opacity: 0.5;
   color: #E8E8E8;
   margin: 10px 0 0 10px;
   font-size: 90px;
@@ -312,6 +312,7 @@ section#mpc_container {
 
 #mpc .top {
   transform: rotateX(90deg) translateZ(250px);
+  background: rgba(56, 98, 253, 0.8);
 }
 
 #mpc .bottom {
