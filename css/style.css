@@ -288,6 +288,7 @@ section#mpc_container {
   display: block;
   position: absolute;
   border: 1px solid #fff;
+  background: rgba(56, 98, 253, 0.8);
 }
 
 #mpc .front {
@@ -312,7 +313,6 @@ section#mpc_container {
 
 #mpc .top {
   transform: rotateX(90deg) translateZ(250px);
-  background: rgba(56, 98, 253, 0.8);
 }
 
 #mpc .bottom {
