@@ -118,29 +118,29 @@ body > #main > .top {
   float: left;
 }
 
-.options #key{
-  margin-right: 20px;
+.options #key {
+  margin-right: 17px;
   padding-top: 81px;
 }
 
-.options > div .left{
+.options #type {
+  padding-top: 81px;
+}
+
+.options > div .left {
   float: left;
   margin-right: 4px;
 }
 
-.options > div .right{
+.options > div .right {
   float: left;
-}
-
-.options#key {
-  padding-top: 81px;
 }
 
 .options button {
   display: block;
   margin-bottom: 4px;
   height: 23px;
-  width: 63px;
+  width: 62px;
   background: transparent;
   color: #fff;
   border: 1px solid #a1b7ff;

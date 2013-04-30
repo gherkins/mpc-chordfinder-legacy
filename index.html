@@ -29,141 +29,206 @@
 
 <div id="main">
 
-    <a href="https://github.com/gherkins/mpc-chordfinder" id="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">
-    </a>
+<a href="https://github.com/gherkins/mpc-chordfinder" id="github">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">
+</a>
 
-    <div class="clear"></div>
+<div class="clear"></div>
 
-    <div class="top">
-
-        <div class="wrap">
-
-            <p class="intro">
-                The MPC-Chord-Finder is a tool to help you find some basic chords on your
-                <a href="http://www.akaipro.com/mpc">MPC</a> pads.
-                <br><br>
-                Select a single note sample (poly mode) &amp; tune it so that PAD1 is C, hit 16/12LEVELS (tuning), grab
-                a <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
-                <br>
-                <br>
-                <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb-development.cc%2Fmpc-chordfinder%2F&amp;send=false&amp;layout=button_count&amp;width=135&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowTransparency="true"></iframe>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://web-development.cc/mpc-chordfinder/" data-hashtags="mpc">Tweet</a>
-                <script>!function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, 'script', 'twitter-wjs');</script>
-            </p>
-
-            <h1>
-                <span id="headline"></span>
-                MPC-Chord-Finder
-            </h1>
-
-            <div id="layout">
-                <button data-layout="pads12" class="active">12 pads</button>
-                <button data-layout="pads16">16 pads</button>
-            </div>
-
-            <div class="clear"></div>
-
-        </div>
-    </div>
+<div class="top">
 
     <div class="wrap">
 
-        <div class="options">
+        <p class="intro">
+            The MPC-Chord-Finder is a tool to help you find some basic chords on your
+            <a href="http://www.akaipro.com/mpc">MPC</a> pads.
+            <br><br>
+            Select a single note sample (poly mode) &amp; tune it so that PAD1 is C, hit 16/12LEVELS (tuning), grab
+            a <a href="http://images.google.com/images?q=real+book">real book</a> and have fun.
+            <br>
+            <br>
+            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb-development.cc%2Fmpc-chordfinder%2F&amp;send=false&amp;layout=button_count&amp;width=135&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowTransparency="true"></iframe>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://web-development.cc/mpc-chordfinder/" data-hashtags="mpc">Tweet</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');</script>
+        </p>
 
-            <div id="key">
-                <div id="key-buttons" class="tour-stop">
-                    <button data-key="C" class="active">C</button>
-                    <button data-key="C#">C#/Db</button>
-                    <button data-key="D">D</button>
-                    <button data-key="D#">D#/Eb</button>
-                    <button data-key="E">E</button>
-                    <button data-key="F">F</button>
-                    <button data-key="F#">F#/Gb</button>
-                    <button data-key="G">G</button>
-                    <button data-key="G#">G#/Ab</button>
-                    <button data-key="A">A</button>
-                    <button data-key="A#">A#/Bb</button>
-                    <button data-key="B">B</button>
-                </div>
-            </div>
+        <h1>
+            <span id="headline"></span>
+            MPC-Chord-Finder
+        </h1>
 
-            <div id="type">
-                <div id="type-buttons" class="tour-stop">
-                    <div class="left">
-                        <button data-intervals='["unison", "major third", "fifth"]' class="active">maj</button>
-                        <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>maj7</button>
-                        <button data-intervals='["unison", "major third", "diminished fifth", "major seventh"]'>maj7b5
-                        </button>
-                        <button data-intervals='["unison", "major third", "minor sixth", "major seventh"]'>maj7#5
-                        </button>
-                        <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>6</button>
-                        <button data-intervals='["unison", "minor third", "fifth"]'>min</button>
-                        <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>min7</button>
-                        <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>min7b5
-                        </button>
-                        <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>min7#5
-                        </button>
-                        <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>min6</button>
-                        <button data-intervals='["unison", "minor third", "fifth", "major seventh"]'>mmaj7</button>
-                        <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>7</button>
-                        <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>7b5
-                        </button>
-                        <button data-intervals='["unison", "major third", "minor sixth", "minor seventh"]'>7#5</button>
-                        <button data-intervals='["unison", "fourth", "fifth", "minor seventh"]'>7sus4</button>
-                    </div>
-                    <div class="right">
-                        <button data-intervals='["unison", "major third", "minor sixth"]'>aug</button>
-                        <button data-intervals='["unison", "minor third", "diminished fifth"]'>dim</button>
-                        <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>dim7
-                        </button>
-                        <button data-intervals='["unison", "fifth"]'>5</button>
-                        <button data-intervals='["unison", "major second", "fifth"]'>sus2</button>
-                        <button data-intervals='["unison", "major second","fourth", "fifth"]'>sus2sus4</button>
-                        <button data-intervals='["unison", "fourth", "fifth"]'>sus4</button>
-                        <button data-intervals='["unison", "major third", "diminished fifth"]'>-5</button>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
-            <div class="clear"></div>
-
+        <div id="layout">
+            <button data-layout="pads12" class="active">12 pads</button>
+            <button data-layout="pads16">16 pads</button>
         </div>
 
-        <section id="mpc_container">
-            <div id="mpc">
-                <figure class="front"></figure>
-                <figure class="back"></figure>
-                <figure class="left"></figure>
-                <figure class="right"></figure>
-                <figure class="top">
-                    <div class="current">
-                        <div class="pads"></div>
-                    </div>
-                </figure>
-                <figure class="bottom"></figure>
+        <div class="clear"></div>
+
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div class="options">
+
+        <div id="key">
+            <div id="key-buttons" class="tour-stop">
+                <button data-key="C" class="active">C</button>
+                <button data-key="C#">C#/Db</button>
+                <button data-key="D">D</button>
+                <button data-key="D#">D#/Eb</button>
+                <button data-key="E">E</button>
+                <button data-key="F">F</button>
+                <button data-key="F#">F#/Gb</button>
+                <button data-key="G">G</button>
+                <button data-key="G#">G#/Ab</button>
+                <button data-key="A">A</button>
+                <button data-key="A#">A#/Bb</button>
+                <button data-key="B">B</button>
             </div>
-        </section>
+        </div>
+
+        <div id="type">
+            <div id="type-buttons" class="tour-stop">
+                <div class="left">
+
+                    <button data-intervals='["unison", "major third", "fifth"]' class="active">
+                        maj
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "diminished fifth", "major seventh"]'>
+                        maj7b5
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "fifth", "major sixth"]'>
+                        6
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "fifth", "minor seventh"]'>
+                        min7
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "minor sixth", "minor seventh"]'>
+                        min7#5
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "fifth", "major seventh"]'>
+                        mmaj7
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "diminished fifth", "minor seventh"]'>
+                        7b5
+                    </button>
+
+                    <button data-intervals='["unison", "fourth", "fifth", "minor seventh"]'>
+                        7sus4
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "diminished fifth"]'>
+                        dim
+                    </button>
+
+                    <button data-intervals='["unison", "fifth"]'>
+                        5
+                    </button>
+
+                    <button data-intervals='["unison", "major second","fourth", "fifth"]'>
+                        sus2sus4
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "diminished fifth"]'>-
+                        5
+                    </button>
+
+                </div>
+                <div class="right">
+
+                    <button data-intervals='["unison", "major third", "fifth", "major seventh"]'>
+                        maj7
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "minor sixth", "major seventh"]'>
+                        maj7#5
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "fifth"]'>
+                        min
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "diminished fifth", "minor seventh"]'>
+                        min7b5
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "fifth", "major sixth"]'>
+                        min6
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "fifth", "minor seventh"]'>
+                        7
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "minor sixth", "minor seventh"]'>
+                        7#5
+                    </button>
+
+                    <button data-intervals='["unison", "major third", "minor sixth"]'>
+                        aug
+                    </button>
+
+                    <button data-intervals='["unison", "minor third", "diminished fifth", "major sixth"]'>
+                        dim7
+                    </button>
+
+                    <button data-intervals='["unison", "major second", "fifth"]'>
+                        sus2
+                    </button>
+
+                    <button data-intervals='["unison", "fourth", "fifth"]'>
+                        sus4
+                    </button>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
 
     </div>
 
-    <div class="actions">
-        <div class="wrap">
-            <button id="add">ADD to collection</button>
-            <button id="clear">CLEAR collection</button>
-            <button id="print" onclick="window.print(); return false;">PRINT collection</button>
-            <div class="clear"></div>
+    <section id="mpc_container">
+        <div id="mpc">
+            <figure class="front"></figure>
+            <figure class="back"></figure>
+            <figure class="left"></figure>
+            <figure class="right"></figure>
+            <figure class="top">
+                <div class="current">
+                    <div class="pads"></div>
+                </div>
+            </figure>
+            <figure class="bottom"></figure>
         </div>
+    </section>
+
+</div>
+
+<div class="actions">
+    <div class="wrap">
+        <button id="add">ADD to collection</button>
+        <button id="clear">CLEAR collection</button>
+        <button id="print" onclick="window.print(); return false;">PRINT collection</button>
+        <div class="clear"></div>
     </div>
+</div>
 
 </div>
 
