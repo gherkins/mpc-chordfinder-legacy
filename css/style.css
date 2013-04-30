@@ -342,6 +342,10 @@ section#mpc_container {
   transform: rotateX(-90deg) translateZ(-165px);
 }
 
+.joyride-tip-guide[data-index="0"] {
+  margin-top: 30px;
+}
+
 .tour-stop {
   display: inline-block;
 }
@@ -366,12 +370,6 @@ section#mpc_container {
 
 .hidden {
   display: none !important;
-}
-
-#headline {
-  display: inline-block;
-  height: 32px;
-  width: 0px;
 }
 
 iframe {
