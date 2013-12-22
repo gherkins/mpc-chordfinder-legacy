@@ -4,7 +4,7 @@ MPC-chord-finder
 It's a tool to locate chords on the Akai MPCs pads.
 
 As you have at least 12 Pads (MPC500), you'll be able to play a lot of chords on a MPC.
-Naturally you'll end up rather playing [inversions](http://en.wikipedia.org/wiki/Inversion_(music)%23Inversions) mostly but that works quite well with most songs.
+Naturally you'll end up rather playing [inversions]('http://en.wikipedia.org/wiki/Inversion_(music)#Inversions') mostly but that works quite well with most songs.
 
 The chords would work for any pitch a sample might have,
 but i'd recommend to tune it so that you have PAD1 playing a C note.
