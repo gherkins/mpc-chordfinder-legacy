@@ -293,8 +293,8 @@ body > #main > .top {
 
 section#mpc_container {
   display: block;
-  width: 502px;
-  height: 502px;
+  width: 500px;
+  height: 500px;
   position: relative;
   //@include perspective-origin(100% 0%);
   @include perspective(1500px);
