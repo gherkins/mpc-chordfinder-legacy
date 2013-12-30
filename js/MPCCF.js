@@ -46,6 +46,13 @@ MPCCF.load = function (withLayout) {
 
 //store data in URL hash
 MPCCF.save = function () {
+    var a = document.createElement('a');
+    a.href = location.href;
+    a.hash = MPCCF.getHash();
+    return a.href;
+}
+
+MPCCF.getData = function(){
     var data = {};
     data['layout'] = $('#layout button.active').data('layout');
     data['collection'] = [];
@@ -53,12 +60,11 @@ MPCCF.save = function () {
         var name = $(this).find('.name').html().replace(' ', '_');
         data['collection'].push(name);
     });
+    return data;
+}
 
-    var a = document.createElement('a');
-    a.href = location.href;
-    a.hash = encodeURIComponent($.base64.encode(JSON.stringify(data)));
-
-    return a.href;
+MPCCF.getHash = function(){
+    return encodeURIComponent($.base64.encode(JSON.stringify(MPCCF.getData())));
 }
 
 //activate Layout

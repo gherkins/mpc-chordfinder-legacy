@@ -8,7 +8,7 @@ $(window).load(function () {
     $('#joyRideTipContent').joyride({
         tipAnimation: 'fade',
         cookieMonster: false,
-        autoStart: true,
+        autoStart: false,
         nextButton: false,
         preStepCallback: function (index, tip) {
             switch (index) {
@@ -57,7 +57,7 @@ $(window).load(function () {
 
 });
 
-$(function(){
+$(function () {
     $(document)
         .foundation()
         .foundation('reveal', {closeOnBackgroundClick: true});
@@ -123,7 +123,7 @@ $(function(){
         MPCCF.load(true);
     });
 
-    $('button#print').on('click', function(){
+    $('button#print').on('click', function () {
         try {
             _gaq.push(['_trackEvent', 'print']);
         } catch (err) {
@@ -173,6 +173,11 @@ $(function(){
     //close dialog
     $('.close-reveal-modal').on('click', function () {
         $('#share').foundation('reveal', 'close');
+    });
+
+
+    $('.help').on('click', function () {
+        $('#joyRideTipContent').joyride('restart');
     });
 
     //initially load collection data
