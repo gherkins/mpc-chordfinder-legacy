@@ -1,0 +1,40 @@
+@import "compass/reset";
+
+#main,
+.collection .pads .remove {
+  display: none;
+}
+
+.collection {
+  margin: 30px 0;
+}
+
+.collection .pads {
+  margin-bottom: 20px;
+}
+
+.collection .pads .name {
+  color: #000;
+}
+
+.collection .pads .pad {
+  border-color: darkgrey;
+}
+
+.collection .pads .pad.highlight {
+  width: 0px;
+  height: 0px;
+  border-left: 12px solid darkgrey;
+  border-right: 11px solid darkgrey;
+  border-top: 11px solid darkgrey;
+  border-bottom: 12px solid darkgrey;
+}
+
+.collection .pads.pads12 .pad.highlight {
+  width: 0px;
+  height: 0px;
+  border-left: 16px solid darkgrey;
+  border-right: 15px solid darkgrey;
+  border-top: 12px solid darkgrey;
+  border-bottom: 11px solid darkgrey;
+}
