@@ -119,6 +119,8 @@ $(function(){
     $('#layout button').on('click', function () {
         $('#layout button').removeClass('active');
         $(this).addClass('active');
+        location.href = MPCCF.save();
+        MPCCF.load(true);
     });
 
     $('button#print').on('click', function(){
