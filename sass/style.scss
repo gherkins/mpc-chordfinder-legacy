@@ -345,12 +345,9 @@ section#mpc_container {
 }
 
 #share-dialog {
-  color: #000;
-
-  h2{
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+  color: #4f81ff;
+  border: none;
+  @include box-shadow(none);
 
   a {
     color: inherit;
@@ -360,6 +357,7 @@ section#mpc_container {
     border: 1px solid #2b80ff;
     padding: 10px 16px;
     font: inherit;
+    color: inherit;
     font-size: 18px;
     margin-bottom: 20px;
   }

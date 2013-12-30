@@ -37,6 +37,7 @@ MPCCF.load = function (withLayout) {
 
         });
 
+        location.hash = '';
 
     }
     catch (e) {
