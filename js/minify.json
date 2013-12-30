@@ -1,0 +1,17 @@
+{
+    "uglify-js-arguments": "-o",
+    "scripts": [
+        "vendor/jquery-1.10.2.js",
+        "vendor/jquery.base64.min.js",
+        "vendor/jquery.joyride-2.0.3.js",
+        "vendor/modernizr.js",
+        "vendor/music.js",
+
+        "vendor/foundation/foundation.js",
+        "vendor/foundation/foundation.reveal.js",
+
+        "MPCCF.js",
+        "init.js"
+    ],
+    "minifiedFilename": "../scripts.js"
+}
