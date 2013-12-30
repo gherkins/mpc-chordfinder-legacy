@@ -136,6 +136,13 @@ $(function(){
         MPCCF.load(false);
     });
 
+    $('button#print').on('click', function(){
+        try {
+            _gaq.push(['_trackEvent', 'print']);
+        } catch (err) {
+        }
+    });
+
     //share
     $('button#share').on('click', function () {
 
@@ -144,6 +151,12 @@ $(function(){
         $.urlShortener({
             longUrl: MPCCF.save(),
             success: function (shortUrl) {
+
+                try {
+                    _gaq.push(['_trackEvent', 'share', shortUrl ]);
+                } catch (err) {
+                }
+
                 $('#share-dialog').find('input').val(shortUrl);
 
                 var fbLink = $('#share-dialog a.fb').data('href');
