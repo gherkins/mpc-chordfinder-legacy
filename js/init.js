@@ -161,12 +161,12 @@ $(function(){
 
                 var fbLink = $('#share-dialog a.fb').data('href');
                 fbLink += "?u=" + encodeURIComponent(shortUrl);
-                fbLink += "&t=" + encodeURIComponent("check out these awesome mpc chords");
+                fbLink += "&t=" + encodeURIComponent("check out this awesome set of chords for the akai mpc");
                 $('#share-dialog a.fb').attr('href', fbLink);
 
                 var twitterLink = $('#share-dialog a.twitter').data('href');
                 twitterLink += "?url=" + encodeURIComponent(shortUrl);
-                twitterLink += "&text=" + encodeURIComponent("check out awesome set of chords for akai #mpc");
+                twitterLink += "&text=" + encodeURIComponent("check out this awesome set of chords for the akai #mpc");
                 $('#share-dialog a.twitter').attr('href', twitterLink);
 
                 var gPLusLink = $('#share-dialog a.g-plus').data('href');
