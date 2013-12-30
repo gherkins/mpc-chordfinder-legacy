@@ -37,8 +37,6 @@ MPCCF.load = function (withLayout) {
 
         });
 
-        //refresh hash
-        MPCCF.refreshHash();
 
     }
     catch (e) {
@@ -46,7 +44,7 @@ MPCCF.load = function (withLayout) {
 }
 
 //store data in URL hash
-MPCCF.refreshHash = function refreshHash() {
+MPCCF.save = function () {
     var data = {};
     data['layout'] = $('#layout button.active').data('layout');
     data['collection'] = [];
@@ -55,7 +53,11 @@ MPCCF.refreshHash = function refreshHash() {
         data['collection'].push(name);
     });
 
-    location.hash = encodeURIComponent($.base64.encode(JSON.stringify(data)));
+    var a = document.createElement('a');
+    a.href = location.href;
+    a.hash = encodeURIComponent($.base64.encode(JSON.stringify(data)));
+
+    return a.href;
 }
 
 //activate Layout
@@ -127,11 +129,7 @@ $(function () {
     //add chord to collection
     $('button#add').on('click', function (e) {
         e.preventDefault();
-
         MPCCF.addCurrentChordToCollection();
-
-        MPCCF.refreshHash();
-
     });
 
     //clear collection
@@ -140,7 +138,6 @@ $(function () {
         $('.collection .pads .remove').each(function () {
             $(this).click();
         });
-        MPCCF.refreshHash();
     });
 
     //remove chord from collection
@@ -148,7 +145,6 @@ $(function () {
         e.preventDefault();
         ($(this).parent().fadeOut(function () {
             $(this).remove();
-            MPCCF.refreshHash();
         }));
     });
 
@@ -157,7 +153,6 @@ $(function () {
         $('#layout button').removeClass('active');
         $(this).addClass('active');
         MPCCF.activateLayout($(this).data('layout'));
-        MPCCF.refreshHash();
         MPCCF.load(false);
     });
 

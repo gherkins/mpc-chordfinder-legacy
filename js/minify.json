@@ -4,6 +4,7 @@
         "vendor/jquery-1.10.2.js",
         "vendor/jquery.base64.min.js",
         "vendor/jquery.joyride-2.0.3.js",
+        "vendor/jquery.urlshortener.js",
         "vendor/modernizr.js",
         "vendor/music.js",
 
