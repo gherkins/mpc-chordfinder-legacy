@@ -1,11 +1,15 @@
 @import "compass/reset";
+@import "foundation/variables";
+@import "foundation/components/global";
+@import "foundation/components/visibility";
+@import "foundation/components/reveal";
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/opacity";
 @import "compass/css3/transition";
 @import "compass/css3/transform";
-@import '_joyride-2.0.3';
+@import 'joyride-2.0.3';
 
 $experimental-support-for-svg: true;
 
@@ -24,8 +28,9 @@ body {
   overflow-x: hidden;
 }
 
+input,
 button {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: inherit;
 }
 
 h1 {
@@ -111,71 +116,70 @@ body > #main > .top {
   float: left;
   width: 220px;
   margin-right: 10px;
-}
 
-.options > div {
-  float: left;
-}
+  > div {
+    float: left;
+    .left {
+      float: left;
+      margin-right: 4px;
+    }
+    .right {
+      float: left;
+    }
+  }
 
-.options #key {
-  margin-right: 17px;
-  padding-top: 81px;
-}
+  #key {
+    margin-right: 17px;
+    padding-top: 81px;
+  }
 
-.options #type {
-  padding-top: 81px;
-}
+  #type {
+    padding-top: 81px;
+  }
 
-.options > div .left {
-  float: left;
-  margin-right: 4px;
-}
+  button {
+    display: block;
+    margin-bottom: 4px;
+    height: 23px;
+    width: 62px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #a1b7ff;
+    font-size: 12px;
 
-.options > div .right {
-  float: left;
-}
+    &.active {
+      background: #7596ff;
+      color: #fff;
+      border-color: #a2b9ff;
+    }
+    &:hover {
+      border-color: #5c83ff;
+      cursor: pointer;
+    }
+  }
 
-.options button {
-  display: block;
-  margin-bottom: 4px;
-  height: 23px;
-  width: 62px;
-  background: transparent;
-  color: #fff;
-  border: 1px solid #a1b7ff;
-  font-size: 12px;
-}
-
-.options button.active {
-  background: #7596ff;
-  color: #fff;
-  border-color: #a2b9ff;
-}
-
-.options button:hover {
-  border-color: #5c83ff;
-  cursor: pointer;
 }
 
 .pads {
-  width: 480px;
+  width: 485px;
   float: left;
   padding: 5px 0 0 5px;
-}
 
-.pads .pad {
-  position: relative;
-  float: left;
-  width: 110px;
-  height: 110px;
-  line-height: 100px;
-  text-align: center;
-  background: #b1c3fe;
-  @include opacity(0.5);
-  color: #E8E8E8;
-  margin: 10px 0 0 10px;
-  font-size: 90px;
-  @include transition(opacity 0.25s ease-in-out);
+  .pad {
+    position: relative;
+    float: left;
+    width: 110px;
+    height: 110px;
+    line-height: 100px;
+    text-align: center;
+    background: #b1c3fe;
+    @include opacity(0.5);
+    color: #E8E8E8;
+    margin: 10px 0 0 10px;
+    font-size: 90px;
+    @include transition(opacity 0.25s ease-in-out);
+  }
+
 }
 
 .current .pads.pads12 .pad {
@@ -264,7 +268,7 @@ body > #main > .top {
   padding: 0 40px;
 }
 
-.actions button#print {
+.actions button#clear {
   border-right: 1px solid #90acff;
 }
 
@@ -283,8 +287,8 @@ body > #main > .top {
 
 section#mpc_container {
   display: block;
-  width: 502px;
-  height: 502px;
+  width: 500px;
+  height: 500px;
   position: relative;
   //@include perspective-origin(100% 0%);
   @include perspective(1500px);
@@ -340,8 +344,47 @@ section#mpc_container {
   @include transform(rotateX(-90deg) translateZ(-165px));
 }
 
+#share-dialog {
+  color: #4f81ff;
+  border: none;
+  @include box-shadow(none);
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  input {
+    border: 1px solid #2b80ff;
+    padding: 10px 16px;
+    font: inherit;
+    color: inherit;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+}
+
+a.button{
+  outline: none;
+  margin-right: 5px;
+  width: auto;
+  padding: 6px 18px 4px;
+  font-size: 13px;
+  text-decoration: none;
+  color: rgb(255,255,255) !important;
+  border: solid 1px rgb(0,60,180);
+  background: rgb(0,99,255);
+  @include background(linear-gradient(top, rgb(0,99,255) 0%,rgb(0,85,214) 100%));
+  &:hover{
+    color: rgb(255,255,255) !important;
+    border: solid 1px rgb(0,60,180) !important;
+    background: rgb(43,128,255);
+    @include background(linear-gradient(top, rgb(43,128,255) 0%, rgb(29,102,211) 100%));
+  }
+}
+
 .joyride-tip-guide[data-index="0"] {
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
 .tour-stop {

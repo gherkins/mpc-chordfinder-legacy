@@ -37,8 +37,7 @@ MPCCF.load = function (withLayout) {
 
         });
 
-        //refresh hash
-        MPCCF.refreshHash();
+        location.hash = '';
 
     }
     catch (e) {
@@ -46,7 +45,14 @@ MPCCF.load = function (withLayout) {
 }
 
 //store data in URL hash
-MPCCF.refreshHash = function refreshHash() {
+MPCCF.save = function () {
+    var a = document.createElement('a');
+    a.href = location.href;
+    a.hash = MPCCF.getHash();
+    return a.href;
+}
+
+MPCCF.getData = function(){
     var data = {};
     data['layout'] = $('#layout button.active').data('layout');
     data['collection'] = [];
@@ -54,8 +60,11 @@ MPCCF.refreshHash = function refreshHash() {
         var name = $(this).find('.name').html().replace(' ', '_');
         data['collection'].push(name);
     });
+    return data;
+}
 
-    location.hash = encodeURIComponent($.base64.encode(JSON.stringify(data)));
+MPCCF.getHash = function(){
+    return encodeURIComponent($.base64.encode(JSON.stringify(MPCCF.getData())));
 }
 
 //activate Layout
@@ -93,79 +102,3 @@ MPCCF.addCurrentChordToCollection = function () {
 
     $('.collection').find('.clear').appendTo('.collection');
 }
-
-$(function () {
-
-    $('.options #key button, .options #type button').on('click', function () {
-
-        $(this).parent().parent().find('button').removeClass('active');
-        $(this).addClass('active');
-
-        var key = $('div#key button.active').data('key');
-        var intervals = $('div#type button.active').data('intervals');
-
-        if (null === key || undefined === key || null === intervals || undefined === intervals) {
-            return;
-        }
-
-        $('.current .pads .pad')
-            .removeClass('highlight')
-            .find('.interval').html('');
-
-        //build chord
-        var root = Note.fromLatin(key);
-        var chord = root.add(intervals);
-
-        $(chord).each(function (key) {
-            //highlight PAD and add note- and interval name
-            $('.current .pads .pad[data-key="' + this.latin() + '"], .current .pads .pad[data-key-2="' + this.latin() + '"]')
-                .addClass('highlight');
-        });
-
-    });
-
-    //add chord to collection
-    $('button#add').on('click', function (e) {
-        e.preventDefault();
-
-        MPCCF.addCurrentChordToCollection();
-
-        MPCCF.refreshHash();
-
-    });
-
-    //clear collection
-    $('button#clear').on('click', function (e) {
-        e.preventDefault();
-        $('.collection .pads .remove').each(function () {
-            $(this).click();
-        });
-        MPCCF.refreshHash();
-    });
-
-    //remove chord from collection
-    $('.collection').delegate('.pads .remove', 'click', function (e) {
-        e.preventDefault();
-        ($(this).parent().fadeOut(function () {
-            $(this).remove();
-            MPCCF.refreshHash();
-        }));
-    });
-
-    //layout switch
-    $('#layout button').on('click', function () {
-        $('#layout button').removeClass('active');
-        $(this).addClass('active');
-        MPCCF.activateLayout($(this).data('layout'));
-        MPCCF.refreshHash();
-        MPCCF.load(false);
-    });
-
-    //initially load collection data
-    MPCCF.load(true);
-    //(re)activate current layout
-    MPCCF.activateLayout($('#layout button.active').data('layout'))
-
-    //activate first chord on load
-    $('.options div#key button.active').click();
-});
